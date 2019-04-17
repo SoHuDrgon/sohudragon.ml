@@ -17,7 +17,7 @@
       <pubDate>Wed, 17 Apr 2019 16:10:14 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/hello-world/</guid>
-      <description>你好，hugo！</description>
+      <description></description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Wed, 17 Apr 2019 15:22:41 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/hugo-install/</guid>
-      <description></description>
+      <description>安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在</description>
     </item>
     
   </channel>
