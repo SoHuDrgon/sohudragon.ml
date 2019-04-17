@@ -5,7 +5,6 @@ title = "飞雪连天射白鹿 笑书神侠倚碧鸳"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
-publishDir = "docs"
 theme = "even"
 enableGitInfo = true # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
 

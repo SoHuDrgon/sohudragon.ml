@@ -11,7 +11,9 @@ if [ $# -eq 1  ]
 fi
 
 # Build the project. 
-hugo -d docs
+hugo 
+rm -r docs
+cp -r public docs
 
 # Add changes to git.
 git add .
