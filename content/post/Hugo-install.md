@@ -95,7 +95,7 @@ echo 'theme = "m10c"' >> config.toml
 `hugo server`
 
 并在浏览器中输入网址http://localhost:1313/就可以在浏览器中查看网页效果了：
-
+![localhostsite](http://wx4.sinaimg.cn/mw690/79b5b049gy1g25qnevi0hj21180m0404.jpg)
 
 
 如果觉得没有问题了便可以使用如下命令：
@@ -106,7 +106,7 @@ echo 'theme = "m10c"' >> config.toml
 ## 发布并托管到Github
 
 上传到Github之前，先在Github中添加一个空白repository，注意不要添加如README，.gitignore等文档。由此得到Github中该repository的网址：https://github.com/guogang1990/sohudrgon.ml.git
-
+![repository](http://ws3.sinaimg.cn/mw690/79b5b049gy1g25qmowit5j20k60hdmz9.jpg)
 
 复制该网址后，在网站本地文档根目录中初始化git：
 ```
@@ -126,11 +126,11 @@ git push -u origin master
 publishDir = docs
 
 自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到Github的master branch，进入Github对应repository的Settings标签菜单，在GitHub Pages选项的Source栏选择master branch /docs folder:
-
+![docs](http://wx2.sinaimg.cn/mw690/79b5b049gy1g25qltk6cvj20l00iv76p.jpg)
 
 
 等待片刻即可访问http://your_name.github.io看到之前用Hugo生成的网页了。
-
+![hugosite](http://ws1.sinaimg.cn/mw690/79b5b049gy1g25qle7u5ej20dl0b5t9k.jpg)
 
 ### 发布到gh-pages branch
 如果希望单独控制源文档和生成的网页文档的版本历史，可以使用单独建立一个gh-pages branch的方法托管到Github Pages——先将/public子目录添加到.gitignore中，让master branch忽略其更新，然后在本地和Github端添加一个名为gh-pages的branch：
@@ -170,7 +170,7 @@ git push origin gh-pages
 ```
 
 最后将master branch中的源文档和gh-pages branch中的网页文档分别push到Github repo中，进入Settings标签菜单，选择Github Pages项中的Source栏，点gh-pages branch选项：
-
+![gh-pages](http://ws4.sinaimg.cn/mw690/79b5b049gy1g25qkfk3amj20l40abaeg.jpg)
 
 同样等待片刻，即可访问https://your_name.github.io看到之前用Hugo生成的网页了。
 
@@ -196,21 +196,21 @@ PING guogang.github.io (185.199.110.153): 56 data bytes
 在/public子目录生成网页的时候该CNAME文件都会被删除，所以最好将该文件放在personal-site/static子目录中，这样运行hugo后该CNAME文件将自动复制到/public目录中。
 等待几小时，在浏览器中访问sohudrgon.ml就可以看到熟悉的个人网站页面了。
 
-配置CloudFlare以使用HTTPs
+## 配置CloudFlare以使用HTTPs
 之所以想要使用CloudFlare，是因为上一步当我们配置好个人域名后，由于Github Pages不支持在自定义域名中使用HTTPs协议，所以浏览器中访问nianze.ml使用的是HTTP协议。这造成一个弊端：每回用Chrome打开sohudrgon.ml，浏览器都提示该网页不受信任，如果网页中还有待加载的JavaScript代码,就得单独点浏览器地址栏右侧的load按钮才能正常加载全部页面，非常麻烦。再加上考虑到HTTPs协议比HTTP更快更安全，显然应该想办法解决这个问题。
 好在CloudFlare为我们提供了一套方便的解决方案，而且是免费的！
 首先点开CloudFlare注册账号，输入前面选好的个人域名sohudrgon.ml，CloudFlare会给我们提供众多服务套餐，选择免费的那个套餐即可:)
 此时CloudFlare会给我们提供其DNS服务器的IP，此时需要去Freenom的域名管理页面中更新默认DNS服务商到CloudFlare：
-
+![managedns](http://ws3.sinaimg.cn/mw690/79b5b049gy1g25qjkyco8j20mw0jpwg0.jpg)
 
 
 更改完DNS服务器就可以设置CloudFlare中的各个选项了。首先在Crypto选项标签下，选择使用Full SSL模式以HTTPs协议加载网页：
 
+![屏幕快照 2019-04-17 下午2.01.02](http://ws4.sinaimg.cn/mw690/79b5b049gy1g25qgn5aoqj20t30f1dhm.jpg)
 
-
-
+![usehttps](http://ws1.sinaimg.cn/mw690/79b5b049gy1g25qoyiu4sj20t105oq3b.jpg)
 然后是DNS标签栏配置，跟Freenom设置类似：
-
+![dnsmanage](http://wx2.sinaimg.cn/mw690/79b5b049gy1g25qp9wl0bj20sy0is76m.jpg)
 
 至此配置完毕。其实CloudFlare中还有很多别的选项，可以根据个人喜好进行相应配置。等待几小时，再次访问sohudrgon.ml，可以发现网页已经在HTTPs协议下加载了。这样以来就再也不用去点那个烦人的load按钮了。
 
