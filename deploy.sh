@@ -13,7 +13,7 @@ fi
 # Build the project. 
 hugo 
 rm -r docs
-cp -r public docs
+mv public docs
 
 # Add changes to git.
 git add .
