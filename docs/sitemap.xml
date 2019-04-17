@@ -1,26 +1,33 @@
-<?xml-stylesheet type="text/xsl" href="https://sohudrgom.ml/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://sohudrgon.ml/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://sohudrgom.ml/hugo-install/</loc>
+    <loc>https://sohudrgon.ml/hello-world/</loc>
+    <lastmod>2019-04-17T16:10:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/</loc>
+    <lastmod>2019-04-17T16:10:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/hugo-install/</loc>
     <lastmod>2019-04-17T15:55:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sohudrgom.ml/</loc>
-    <lastmod>2019-04-17T15:55:31+08:00</lastmod>
+    <loc>https://sohudrgon.ml/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sohudrgom.ml/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgom.ml/tags/</loc>
+    <loc>https://sohudrgon.ml/tags/</loc>
     <priority>0</priority>
   </url>
   
