@@ -5,7 +5,7 @@ draft: false
 ---
 
 ## 安装Hugo
-本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。
+本文在macOS High Sierra环境下写成。Windows平台可参考[官方文档](https://www.gohugo.org/)做相应修改。
 
 如果Mac上已经装上了Homebrew，在命令行中直接敲下面的命令安装：
 
@@ -172,13 +172,13 @@ git push origin gh-pages
 最后将master branch中的源文档和gh-pages branch中的网页文档分别push到Github repo中，进入Settings标签菜单，选择Github Pages项中的Source栏，点gh-pages branch选项：
 ![gh-pages](http://ws4.sinaimg.cn/mw690/79b5b049gy1g25qkfk3amj20l40abaeg.jpg)
 
-同样等待片刻，即可访问https://your_name.github.io看到之前用Hugo生成的网页了。
+同样等待片刻，即可访问https://your_name.github.io 看到之前用Hugo生成的网页了。
 
 ## 配置个人域名
 
-如果觉得使用your_name.github.io不够酷炫，还可以考虑使用自选的个人域名。好的个人域名自然是需要到对应服务商购买的。常见的域名如.com, .net, .me一般都不免费，但好在非顶级域名的年费其实也不贵。由于我建网的初衷只是自娱自乐，暂时并没有付费购买域名的意向，索性直接去Freenom找了免费域名来用。
+如果觉得使用your_name.github.io不够酷炫，还可以考虑使用自选的个人域名。好的个人域名自然是需要到对应服务商购买的。常见的域名如.com, .net, .me一般都不免费，但好在非顶级域名的年费其实也不贵。由于我建网的初衷只是自娱自乐，暂时并没有付费购买域名的意向，索性直接去[Freenom](https://my.freenom.com/clientarea.php)找了免费域名来用。
 
-目前Freenom平台提供的免费域名后缀为.tk, .ml,ga,cf,gq等。购买域名很简单，先在Freenom网站上注册账号，然后查看自己想要的域名的价格并根据提示下单即可。考虑到现在machine leanring这么火，我就选了sohudrgon.ml这个免费域名。
+目前Freenom平台提供的免费域名后缀为.tk, .ml,ga,cf,gq等。购买域名很简单，先在[Freenom](https://my.freenom.com/clientarea.php)网站上注册账号，然后查看自己想要的域名的价格并根据提示下单即可。考虑到现在machine leanring这么火，我就选了sohudrgon.ml这个免费域名。
 
 域名买好后还需要设置下域名解析。由于默认使用的是Freenom的DNS服务器，所以需要在Manage Domain菜单中配置域名解析规则。在Manage Freeenom DNS选项中添加如下两条规则：
 	1. 添加A记录（即地址记录，用来指定域名的IP地址），主机记录（Name）栏填www，记录值(Target)那栏填Github服务器IP地址（或者your_name.github.io的IP地址）
@@ -197,8 +197,9 @@ PING guogang.github.io (185.199.110.153): 56 data bytes
 等待几小时，在浏览器中访问sohudrgon.ml就可以看到熟悉的个人网站页面了。
 
 ## 配置CloudFlare以使用HTTPs
-之所以想要使用CloudFlare，是因为上一步当我们配置好个人域名后，由于Github Pages不支持在自定义域名中使用HTTPs协议，所以浏览器中访问nianze.ml使用的是HTTP协议。这造成一个弊端：每回用Chrome打开sohudrgon.ml，浏览器都提示该网页不受信任，如果网页中还有待加载的JavaScript代码,就得单独点浏览器地址栏右侧的load按钮才能正常加载全部页面，非常麻烦。再加上考虑到HTTPs协议比HTTP更快更安全，显然应该想办法解决这个问题。
+之所以想要使用[CloudFlare](https://dash.cloudflare.com)，是因为上一步当我们配置好个人域名后，由于Github Pages不支持在自定义域名中使用HTTPs协议，所以浏览器中访问sohudrgon.ml使用的是HTTP协议。这造成一个弊端：每回用Chrome打开sohudrgon.ml，浏览器都提示该网页不受信任，如果网页中还有待加载的JavaScript代码,就得单独点浏览器地址栏右侧的load按钮才能正常加载全部页面，非常麻烦。再加上考虑到HTTPs协议比HTTP更快更安全，显然应该想办法解决这个问题。
 好在CloudFlare为我们提供了一套方便的解决方案，而且是免费的！
+
 首先点开CloudFlare注册账号，输入前面选好的个人域名sohudrgon.ml，CloudFlare会给我们提供众多服务套餐，选择免费的那个套餐即可:)
 此时CloudFlare会给我们提供其DNS服务器的IP，此时需要去Freenom的域名管理页面中更新默认DNS服务商到CloudFlare：
 ![managedns](http://ws3.sinaimg.cn/mw690/79b5b049gy1g25qjkyco8j20mw0jpwg0.jpg)
