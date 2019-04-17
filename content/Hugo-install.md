@@ -1,7 +1,7 @@
 ---
 title: "Hugo Install"
 date: 2019-04-17T15:22:41+08:00
-draft: true
+draft: false
 ---
 
 ## 安装Hugo

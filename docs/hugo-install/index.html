@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hugo Install - 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SoHuDrgon" /><meta name="description" content="安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在" /><meta name="keywords" content="Linux, Cloud, docker, Kubernetes, Gitlab" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://sohudrgom.ml/hugo-install/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Hugo Install" />
+<meta property="og:description" content="安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sohudrgom.ml/hugo-install/" />
+<meta property="article:published_time" content="2019-04-17T15:22:41&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-17T15:36:37&#43;08:00"/>
+
+<meta itemprop="name" content="Hugo Install">
+<meta itemprop="description" content="安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在">
+
+
+<meta itemprop="datePublished" content="2019-04-17T15:22:41&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-17T15:36:37&#43;08:00" />
+<meta itemprop="wordCount" content="3771">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo Install"/>
+<meta name="twitter:description" content="安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">死亡笔记</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">死亡笔记</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    
+
+<h2 id="安装hugo">安装Hugo</h2>
+
+<p>本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。</p>
+
+<p>如果Mac上已经装上了Homebrew，在命令行中直接敲下面的命令安装：</p>
+
+<p><code>brew install hugo</code></p>
+
+<p>如果Mac上没有安装Homebrew，可以考虑先装Homebrew再按上述步骤安装Hugo；也可以在Hugo官网直接下载使用可运行文件。
+至此Hugo就安装完毕了。So easy.</p>
+
+<h3 id="在hugo中写文章">在Hugo中写文章</h3>
+
+<p>在硬盘中选取合适的存储路径，然后命令行中使用如下指令生成网页本地文档：
+<code>hugo new site personal-site</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">hugo new site sohudrgon.ml
+Congratulations! Your new Hugo site is created in /Users/guogang/Projects/sohudrgon.ml.
+
+Just a few more steps and you&#39;re ready to go:
+
+1. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/, or
+   create your own with the &#34;hugo new theme &lt;THEMENAME&gt;&#34; command.
+2. Perhaps you want to add some content. You can add single files
+   with &#34;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;.
+3. Start the built-in live server via &#34;hugo server&#34;.
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.</pre></td></tr></table>
+</div>
+</div>
+<p>由此可得到如下文件目录：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">personal-site
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes</pre></td></tr></table>
+</div>
+</div>
+<p>常用目录用处如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">| 子目录名称 | 功能 |
+| ------------ | ---------------------------------------------------------------------- |
+| archetypes | 新文章默认模板 |
+| config.toml | Hugo配置文档 |
+| content | 存放所有Markdown格式的文章 |
+| layouts | 存放自定义的view，可为空 |
+| static | 存放图像、CNAME、css、js等资源，发布后该目录下所有资源将处于网页根目录 |
+| themes | 存放下载的主题 |</pre></td></tr></table>
+</div>
+</div>
+<p>使用下面的命令生成新的文章草稿：
+<code>hugo new posts/first-post.md</code></p>
+
+<p>在content目录中会自动以archetypes/default.md为模板在content/posts目录下生成一篇名为first-post.md的文章草稿：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">---
+title: &#34;First Post&#34;
+date: 2017-12-27T23:15:53-05:00
+draft: true
+---</pre></td></tr></table>
+</div>
+</div>
+<p>我们可以加一个标题在下面并去掉标记为草稿的这一行：draft: true</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">---
+title: &#34;First Post&#34;
+date: 2017-12-27T23:15:53-05:00
+---
+## Hello world</pre></td></tr></table>
+</div>
+</div>
+<p>然后随便下载一个主题并加载到config.toml文件中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+# Edit your config.toml configuration file
+# and add the Ananke theme.
+echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git submodule add https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+echo &#39;theme = &#34;m10c&#34;&#39; &gt;&gt; config.toml</pre></td></tr></table>
+</div>
+</div>
+<p>现在使用如下命令建立本地服务器：
+<code>hugo server</code></p>
+
+<p>并在浏览器中输入网址<a href="http://localhost:1313/就可以在浏览器中查看网页效果了：">http://localhost:1313/就可以在浏览器中查看网页效果了：</a></p>
+
+<p>如果觉得没有问题了便可以使用如下命令：
+<code>hugo</code></p>
+
+<p>如此一来网页便生成在默认的public子目录中了。</p>
+
+<h2 id="发布并托管到github">发布并托管到Github</h2>
+
+<p>上传到Github之前，先在Github中添加一个空白repository，注意不要添加如README，.gitignore等文档。由此得到Github中该repository的网址：<a href="https://github.com/guogang1990/sohudrgon.ml.git">https://github.com/guogang1990/sohudrgon.ml.git</a></p>
+
+<p>复制该网址后，在网站本地文档根目录中初始化git：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git init
+git commit -m &#34;first commit&#34;
+git remote add origin https://github.com/guogang1990/sohudrgon.ml.git
+git push -u origin master</pre></td></tr></table>
+</div>
+</div>
+<p>至此所有源文档就都push到Github上了。然而此时Github对待这些源文档跟其他任何普通的repository中的代码并没有任何不同，并不会将public子目录中的网页托管在Github Pages上。
+参见Hugo官方文档，可以选择以下两种方式让Github Pages加载我们想要托管的/public子目录中的网页：
+    1. 配置Hugo将网页生成在名为/docs的子目录中，然后直接push到master branch
+    2. 仍然使用默认的/public子目录存储网页，再单独建立一个gh-pages branch</p>
+
+<h3 id="使用-docs发布到master-branch">使用/docs发布到master branch</h3>
+
+<p>第一种方案的好处在于一次push即可将源文档和对应生成的网页文档都发布到Github，操作非常简单。所需要的仅是在config.toml中添加如下一行配置，使得生成的网页默认保存在/docs子目录下：
+publishDir = docs</p>
+
+<p>自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到Github的master branch，进入Github对应repository的Settings标签菜单，在GitHub Pages选项的Source栏选择master branch /docs folder:</p>
+
+<p>等待片刻即可访问<a href="http://your_name.github.io看到之前用Hugo生成的网页了。">http://your_name.github.io看到之前用Hugo生成的网页了。</a></p>
+
+<h3 id="发布到gh-pages-branch">发布到gh-pages branch</h3>
+
+<p>如果希望单独控制源文档和生成的网页文档的版本历史，可以使用单独建立一个gh-pages branch的方法托管到Github Pages——先将/public子目录添加到.gitignore中，让master branch忽略其更新，然后在本地和Github端添加一个名为gh-pages的branch：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//忽略public子目录
+echo &#34;public&#34; &gt;&gt; .gitignore
+//初始化gh-pages branch
+git checkout --orphan gh-pages
+git reset --hard
+git commit --allow-empty -m &#34;Initializing gh-pages branch&#34;
+git push origin gh-pages
+git checkout master</pre></td></tr></table>
+</div>
+</div>
+<p>为了提高每次发布的效率，可以将下述命令存在脚本中，每次只需要运行该脚本即可将gh-pages branch中的文章发布到Github的repo中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="k">if</span> <span class="o">[[</span> <span class="k">$(</span>git status -s<span class="k">)</span> <span class="o">]]</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;The working directory is dirty. Please commit any pending changes.&#34;</span>
+    <span class="nb">exit</span> <span class="m">1</span><span class="p">;</span>
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s2">&#34;Deleting old publication&#34;</span>
+rm -rf public
+mkdir public
+rm -rf .git/worktrees/public/
+<span class="nb">echo</span> <span class="s2">&#34;Checking out gh-pages branch into public&#34;</span>
+git worktree add -B gh-pages public origin/gh-pages
+<span class="nb">echo</span> <span class="s2">&#34;Removing existing files&#34;</span>
+rm -rf public/*
+<span class="nb">echo</span> <span class="s2">&#34;Generating site&#34;</span>
+hugo
+<span class="nb">echo</span> <span class="s2">&#34;Updating gh-pages branch&#34;</span>
+<span class="nb">cd</span> public <span class="o">&amp;&amp;</span> git add --all <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;Publishing to gh-pages (publish.sh)&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Push to origin&#34;</span>
+git push origin gh-pages</pre></td></tr></table>
+</div>
+</div>
+<p>最后将master branch中的源文档和gh-pages branch中的网页文档分别push到Github repo中，进入Settings标签菜单，选择Github Pages项中的Source栏，点gh-pages branch选项：</p>
+
+<p>同样等待片刻，即可访问<a href="https://your_name.github.io看到之前用Hugo生成的网页了。">https://your_name.github.io看到之前用Hugo生成的网页了。</a></p>
+
+<h2 id="配置个人域名">配置个人域名</h2>
+
+<p>如果觉得使用your_name.github.io不够酷炫，还可以考虑使用自选的个人域名。好的个人域名自然是需要到对应服务商购买的。常见的域名如.com, .net, .me一般都不免费，但好在非顶级域名的年费其实也不贵。由于我建网的初衷只是自娱自乐，暂时并没有付费购买域名的意向，索性直接去Freenom找了免费域名来用。</p>
+
+<p>目前Freenom平台提供的免费域名后缀为.tk, .ml,ga,cf,gq等。购买域名很简单，先在Freenom网站上注册账号，然后查看自己想要的域名的价格并根据提示下单即可。考虑到现在machine leanring这么火，我就选了sohudrgon.ml这个免费域名。</p>
+
+<p>域名买好后还需要设置下域名解析。由于默认使用的是Freenom的DNS服务器，所以需要在Manage Domain菜单中配置域名解析规则。在Manage Freeenom DNS选项中添加如下两条规则：
+    1. 添加A记录（即地址记录，用来指定域名的IP地址），主机记录（Name）栏填www，记录值(Target)那栏填Github服务器IP地址（或者your_name.github.io的IP地址）
+    2. 添加CNAME记录（用于将一个域名映射到另一个域名），主机记录栏填@，记录值那栏填your_name.github.io</p>
+
+<p>其中，Github服务器IP地址是185.199.110.153，而your_name.github.io的IP地址可以在命令行中使用ping命令得到：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#ping guogang.github.io
+PING guogang.github.io (185.199.110.153): 56 data bytes
+64 bytes from 185.199.110.153: icmp_seq=0 ttl=50 time=31.412 ms
+64 bytes from 185.199.110.153: icmp_seq=1 ttl=50 time=30.863 ms</pre></td></tr></table>
+</div>
+</div>
+<p>最后还需要在personal-site/public子目录中需要添加一个名为CNAME的文档，该文件只包含想要替换的个人域名，对我来说即是sohudrgon.ml（不加http）。由于每次使用hugo命令
+在/public子目录生成网页的时候该CNAME文件都会被删除，所以最好将该文件放在personal-site/static子目录中，这样运行hugo后该CNAME文件将自动复制到/public目录中。
+等待几小时，在浏览器中访问sohudrgon.ml就可以看到熟悉的个人网站页面了。</p>
+
+<p>配置CloudFlare以使用HTTPs
+之所以想要使用CloudFlare，是因为上一步当我们配置好个人域名后，由于Github Pages不支持在自定义域名中使用HTTPs协议，所以浏览器中访问nianze.ml使用的是HTTP协议。这造成一个弊端：每回用Chrome打开sohudrgon.ml，浏览器都提示该网页不受信任，如果网页中还有待加载的JavaScript代码,就得单独点浏览器地址栏右侧的load按钮才能正常加载全部页面，非常麻烦。再加上考虑到HTTPs协议比HTTP更快更安全，显然应该想办法解决这个问题。
+好在CloudFlare为我们提供了一套方便的解决方案，而且是免费的！
+首先点开CloudFlare注册账号，输入前面选好的个人域名sohudrgon.ml，CloudFlare会给我们提供众多服务套餐，选择免费的那个套餐即可:)
+此时CloudFlare会给我们提供其DNS服务器的IP，此时需要去Freenom的域名管理页面中更新默认DNS服务商到CloudFlare：</p>
+
+<p>更改完DNS服务器就可以设置CloudFlare中的各个选项了。首先在Crypto选项标签下，选择使用Full SSL模式以HTTPs协议加载网页：</p>
+
+<p>然后是DNS标签栏配置，跟Freenom设置类似：</p>
+
+<p>至此配置完毕。其实CloudFlare中还有很多别的选项，可以根据个人喜好进行相应配置。等待几小时，再次访问sohudrgon.ml，可以发现网页已经在HTTPs协议下加载了。这样以来就再也不用去点那个烦人的load按钮了。</p>
+
+<h2 id="后记">后记</h2>
+
+<p>至此我的新版博客就迁移完毕了，基本满足我现在写文章、摄影和音乐的各项需求。下一步准备在摄影栏目中加上一个照片墙功能。</p>
+
+  </div>
+</article>
+        </div>
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80Mzc2Ny8yMDMwNg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>Please enable JavaScript to view the comments powered by <a href="https://livere.com/">LiveRe.</a></noscript>
+    </div><div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2019-04-17 15:22:41 \x2b0800 CST',
+        title: 'Hugo Install',
+        link: decodeURI(location.href),
+        desc: '安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在',
+        owner: 'guogang1990',
+        repo: 'https:\/\/github.com\/guogang1990\/sohudrgon.ml.git',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:guogang1990@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.twitter.com/SoHuDrgon" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/guogang1990" class="iconfont icon-github" title="github"></a>
+  <a href="https://sohudrgom.ml/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SoHuDrgon</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
