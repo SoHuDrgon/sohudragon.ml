@@ -138,11 +138,6 @@ nginx: configuration file /var/opt/gitlab/nginx/conf/nginx.conf test is successf
 #### 查看版本
 `sudo cat /opt/gitlab/embedded/service/gitlab-rails/VERSION`
 
-```
-# echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
-# sysctl -p
-# echo never > /sys/kernel/mm/transparent_hugepage/enabled
-```
 
 #### 检查gitlab
 `gitlab-rake gitlab:check SANITIZE=true --trace`
@@ -188,7 +183,7 @@ sudo gitlab-ctl start
 
 ## 汉化
 其实官方已经汉化过了，只是下面的汉化是增强而已，可以不用汉化的。
-https://gitlab.com/xhang/gitlab
+[gitlab 汉化版本](https://gitlab.com/xhang/gitlab)
 
 
 ## 邮箱配置
@@ -258,14 +253,16 @@ nginx['ssl_prefer_server_ciphers'] = "on"
 ```
 
 3.配置完成后重配置和重启gitlab 服务
+```
   Run configuration wizard (Chef Solo Setup)
-  `sudo gitlab-ctl reconfigure`
+  sudo gitlab-ctl reconfigure
   Restart Services
-  `sudo gitlab-ctl restart`
-
+  sudo gitlab-ctl restart
+```
 
 4.配置http和https共存
-https://github.com/sameersbn/docker-gitlab/issues/716
+
+[github issue](https://github.com/sameersbn/docker-gitlab/issues/716)
 
 将http的配置文件保存一份，/var/opt/gitlab/nginx/conf/gitlab-http.conf，将其中的server的那段文件复制进新的https的配置文件里面即可：
 ```

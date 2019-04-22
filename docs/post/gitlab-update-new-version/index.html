@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="SoHuDrgon" /><meta name="description" content="" /><meta name="keywords" content="Linux, Cloud, docker, Kubernetes, Gitlab" />
+<meta name="author" content="SoHuDrgon" /><meta name="description" content="接触的这段时间gitlab不断的进行迭代更新，所以如果有实用的新功能或严重的bug修复时，必然要考虑gitlab的更新。 一、下载新版本的RP" /><meta name="keywords" content="Linux, Cloud, docker, Kubernetes, Gitlab" />
 
 
 
@@ -39,26 +39,26 @@
 
 
 <meta property="og:title" content="Gitlab Update New Version" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="接触的这段时间gitlab不断的进行迭代更新，所以如果有实用的新功能或严重的bug修复时，必然要考虑gitlab的更新。 一、下载新版本的RP" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sohudrgon.ml/post/gitlab-update-new-version/" />
 <meta property="article:published_time" content="2019-04-22T11:17:40&#43;08:00"/>
-<meta property="article:modified_time" content="2019-04-22T11:17:40&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-22T11:33:32&#43;08:00"/>
 
 <meta itemprop="name" content="Gitlab Update New Version">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="接触的这段时间gitlab不断的进行迭代更新，所以如果有实用的新功能或严重的bug修复时，必然要考虑gitlab的更新。 一、下载新版本的RP">
 
 
 <meta itemprop="datePublished" content="2019-04-22T11:17:40&#43;08:00" />
-<meta itemprop="dateModified" content="2019-04-22T11:17:40&#43;08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="dateModified" content="2019-04-22T11:33:32&#43;08:00" />
+<meta itemprop="wordCount" content="342">
 
 
 
 <meta itemprop="keywords" content="“Gitlab”," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gitlab Update New Version"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="接触的这段时间gitlab不断的进行迭代更新，所以如果有实用的新功能或严重的bug修复时，必然要考虑gitlab的更新。 一、下载新版本的RP"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,8 +128,8 @@
         <div class="post-category">
             <a href="/categories/gitlab/"> “Gitlab” </a>
             </div>
-          <span class="more-meta"> 约 0 字 </span>
-          <span class="more-meta"> 预计阅读 0 分钟 </span>
+          <span class="more-meta"> 约 342 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -146,6 +146,9 @@
 <li><a href="#途径1-通过清华开源镜像站">途径1：通过清华开源镜像站</a></li>
 <li><a href="#途径2-从官方获取rpm包后上传到-root目录下">途径2：从官方获取RPM包后上传到/root目录下 </a></li>
 <li><a href="#途径3-直接yum-update-gitlab-ce即可">途径3：直接yum update gitlab-ce即可</a></li>
+</ul></li>
+<li><a href="#二-更新gitlab">二、更新gitlab</a>
+<ul>
 <li><a href="#2-1-关闭部分gitlab服务">2.1 关闭部分gitlab服务</a></li>
 <li><a href="#2-2-升级">2.2 升级</a></li>
 <li><a href="#2-3-重新配置gitlab">2.3 重新配置gitlab</a></li>
@@ -203,7 +206,7 @@ gitlab-ce.x86_64                     11.2.1-ce.0.el6          @gitlab-ce
 gitlab-ce.x86_64                     11.2.3-ce.0.el6          gitlab-ce  </pre></td></tr></table>
 </div>
 </div>
-<p>##二、更新gitlab</p>
+<h2 id="二-更新gitlab">二、更新gitlab</h2>
 
 <h3 id="2-1-关闭部分gitlab服务">2.1 关闭部分gitlab服务</h3>
 <div class="highlight"><div class="chroma">
@@ -224,7 +227,7 @@ gitlab-ctl stop nginx</pre></td></tr></table>
 
 <h3 id="2-3-重新配置gitlab">2.3 重新配置gitlab</h3>
 
-<p>gitlab-ctl reconfigure</p>
+<p><code>gitlab-ctl reconfigure</code></p>
 
 <p><img src="http://wx3.sinaimg.cn/mw690/79b5b049gy1g2b96wk9stj20nx0iwq6i.jpg" alt="gitlab-yum" /></p>
 
@@ -234,6 +237,8 @@ gitlab-ctl stop nginx</pre></td></tr></table>
 
 <p>使用管理员账户登录后可以看到gitlab的版本号已经从11.2.1升到了11.2.3。
 <img src="http://ws4.sinaimg.cn/mw690/79b5b049gy1g2b9791ywpj20bd0evgmd.jpg" alt="gitlab-update" /></p>
+
+<p>至此，Gitlab的版本更新就完成了。</p>
 
     </div>
 
@@ -246,7 +251,7 @@ gitlab-ctl stop nginx</pre></td></tr></table>
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-04-22
-        
+        <a href="https://github.com/guogang1990/sohudrgon.ml.git/commit/1d0ad9a15030944ff63241d60f06352826e2b241" title="rebuilding site 2019年 4月22日 星期一 11时33分32秒 CST">(1d0ad9a)</a>
     </span>
   </p>
   
@@ -257,7 +262,11 @@ gitlab-ctl stop nginx</pre></td></tr></table>
           <a href="/tags/gitlab/">“Gitlab”</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/svn%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BBgitlab/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SVN项目迁移Gitlab</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/centos-6-%E5%AE%89%E8%A3%85gitlab/">
             <span class="next-text nav-default">CentOS 6 安装Gitlab</span>
             <span class="next-text nav-mobile">下一篇</span>
@@ -290,7 +299,7 @@ gitlab-ctl stop nginx</pre></td></tr></table>
         id: '2019-04-22 11:17:40 \x2b0800 CST',
         title: 'Gitlab Update New Version',
         link: decodeURI(location.href),
-        desc: '',
+        desc: '接触的这段时间gitlab不断的进行迭代更新，所以如果有实用的新功能或严重的bug修复时，必然要考虑gitlab的更新。 一、下载新版本的RP',
         owner: 'guogang1990',
         repo: 'https:\/\/github.com\/guogang1990\/sohudrgon.ml.git',
         oauth: {

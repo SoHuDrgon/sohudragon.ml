@@ -31,7 +31,7 @@ gitlab-ce.x86_64                     11.2.1-ce.0.el6          @gitlab-ce
 gitlab-ce.x86_64                     11.2.3-ce.0.el6          gitlab-ce  
 ```
 
-##二、更新gitlab
+## 二、更新gitlab
 ### 2.1 关闭部分gitlab服务
 ```
 gitlab-ctl stop unicorn
@@ -43,7 +43,7 @@ gitlab-ctl stop nginx
 `yum  -y update gitlab-ce`
 
 ### 2.3 重新配置gitlab
-gitlab-ctl reconfigure
+`gitlab-ctl reconfigure`
 
 ![gitlab-yum](http://wx3.sinaimg.cn/mw690/79b5b049gy1g2b96wk9stj20nx0iwq6i.jpg)
 
@@ -52,3 +52,5 @@ gitlab-ctl reconfigure
 
 使用管理员账户登录后可以看到gitlab的版本号已经从11.2.1升到了11.2.3。
 ![gitlab-update](http://ws4.sinaimg.cn/mw690/79b5b049gy1g2b9791ywpj20bd0evgmd.jpg)
+
+至此，Gitlab的版本更新就完成了。

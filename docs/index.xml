@@ -6,10 +6,19 @@
     <description>Recent content on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 22 Apr 2019 11:17:40 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2019 11:37:20 +0800</lastBuildDate>
     
 	<atom:link href="https://sohudrgon.ml/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SVN项目迁移Gitlab</title>
+      <link>https://sohudrgon.ml/post/svn%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BBgitlab/</link>
+      <pubDate>Mon, 22 Apr 2019 11:37:20 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/svn%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BBgitlab/</guid>
+      <description>SVN项目迁移到Gitlab教程 一.准备工作 1 2 3 4 • 本地安装Git，下载地址：https://git-scm.com/downloads，</description>
+    </item>
     
     <item>
       <title>Gitlab Update New Version</title>
@@ -17,7 +26,7 @@
       <pubDate>Mon, 22 Apr 2019 11:17:40 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/gitlab-update-new-version/</guid>
-      <description></description>
+      <description>接触的这段时间gitlab不断的进行迭代更新，所以如果有实用的新功能或严重的bug修复时，必然要考虑gitlab的更新。 一、下载新版本的RP</description>
     </item>
     
     <item>
@@ -26,7 +35,7 @@
       <pubDate>Mon, 22 Apr 2019 10:15:14 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/centos-6-%E5%AE%89%E8%A3%85gitlab/</guid>
-      <description>Gtilab Omnibus安装教程 1 2 3 4 Gitlab官网：www.gitlab.com 官网安装说明：https://docs.gitlab.com/</description>
+      <description></description>
     </item>
     
     <item>

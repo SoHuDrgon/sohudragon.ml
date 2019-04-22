@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SVN项目迁移Gitlab - 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SoHuDrgon" /><meta name="description" content="SVN项目迁移到Gitlab教程 一.准备工作 1 2 3 4 • 本地安装Git，下载地址：https://git-scm.com/downloads，" /><meta name="keywords" content="Linux, Cloud, docker, Kubernetes, Gitlab" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://sohudrgon.ml/post/svn%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BBgitlab/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SVN项目迁移Gitlab" />
+<meta property="og:description" content="SVN项目迁移到Gitlab教程 一.准备工作 1 2 3 4 • 本地安装Git，下载地址：https://git-scm.com/downloads，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sohudrgon.ml/post/svn%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BBgitlab/" />
+<meta property="article:published_time" content="2019-04-22T11:37:20&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-22T11:37:20&#43;08:00"/>
+
+<meta itemprop="name" content="SVN项目迁移Gitlab">
+<meta itemprop="description" content="SVN项目迁移到Gitlab教程 一.准备工作 1 2 3 4 • 本地安装Git，下载地址：https://git-scm.com/downloads，">
+
+
+<meta itemprop="datePublished" content="2019-04-22T11:37:20&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-22T11:37:20&#43;08:00" />
+<meta itemprop="wordCount" content="1426">
+
+
+
+<meta itemprop="keywords" content="“Gitlab”," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SVN项目迁移Gitlab"/>
+<meta name="twitter:description" content="SVN项目迁移到Gitlab教程 一.准备工作 1 2 3 4 • 本地安装Git，下载地址：https://git-scm.com/downloads，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">死亡笔记</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">死亡笔记</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SVN项目迁移Gitlab</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-22 </span>
+        <div class="post-category">
+            <a href="/categories/gitlab/"> “Gitlab” </a>
+            </div>
+          <span class="more-meta"> 约 1426 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#svn项目迁移到gitlab教程">SVN项目迁移到Gitlab教程</a>
+<ul>
+<li><a href="#一-准备工作">一.准备工作</a></li>
+<li><a href="#二-svn迁移到gitlab">二.SVN迁移到Gitlab </a>
+<ul>
+<li><a href="#进入到需要迁移项目svn地址-查看提交记录-即show-log中对应的author-本地建立-txt文件">进入到需要迁移项目SVN地址，查看提交记录，即show log中对应的Author，本地建立.txt文件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#三-gitlab权限管理">三.Gitlab权限管理</a></li>
+<li><a href="#四-实际操作过程记录">四.实际操作过程记录</a>
+<ul>
+<li><a href="#1-登录gitlab-创建项目">1.登录Gitlab，创建项目</a></li>
+<li><a href="#2-初始页面有命令行指引">2.初始页面有命令行指引</a></li>
+<li><a href="#3-下载svn项目">3.下载svn项目</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="svn项目迁移到gitlab教程">SVN项目迁移到Gitlab教程</h2>
+
+<h3 id="一-准备工作">一.准备工作</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">• 本地安装Git，下载地址：https://git-scm.com/downloads，安装即可
+• 我们的Gitlab地址：http://*********，没有账号的自行注册
+• 找到C:\Users\用户名\.ssh文件夹，复制其中id_rsa.pub，粘贴到Rrofile Settings-&gt;SSH Keys的Key中，Title随便填写
+• 本地磁盘任意位置建立空文件夹，作为Git本地仓库</pre></td></tr></table>
+</div>
+</div>
+<h3 id="二-svn迁移到gitlab">二.SVN迁移到Gitlab </h3>
+
+<h4 id="进入到需要迁移项目svn地址-查看提交记录-即show-log中对应的author-本地建立-txt文件">进入到需要迁移项目SVN地址，查看提交记录，即show log中对应的Author，本地建立.txt文件</h4>
+
+<p>编辑文件格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">zhangsan = zhang&lt;11111111@qq.com&gt;
+lisi = li&lt;22222222@qq.com&gt;
+....
+wangwu = wang&lt;33333333@qq.com&gt;</pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<p>第一个参数zhangsan是SVN对应Author的名字，<br />
+第二个参数zhang是zhangsan对应Gitlab的名字，&lt;此用户Gitlab邮箱&gt;</p>
+
+<p>我的实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#cat auther.txt 
+nixiaodong = nixiaodong&lt;nixd@xxx.com&gt;
+zhongyajie = zhongyajie&lt;zhongyj@xxx.com&gt;
+shijiajia = shijiajia&lt;shijj@xxx.com&gt;
+xuehao = xuehao&lt;xuehao@xxx.com&gt;
+gaowei = gaowei&lt;gaowei@xxx.com&gt;
+baijiangbo = baijiangbo&lt;baijb@xxx.com&gt;
+donggang = donggang&lt;donggang@xxx.com&gt;
+yanchong = yanchong&lt;yanchong@xxx.com&gt;
+lichuntian = lichuntian&lt;lict@xxx.com&gt;
+yanlei = yanlei&lt;yanlei@xxx.com&gt;
+lixiaodong= lixd&lt;lixd@xxx.com&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>SVN提交log中有几名不同的Author，这里对应需要有几条记录，缺少的话会出现迁移失败，重复的无需添加，
+&gt;打开Git安装目录下的git-bash.exe，切换到Git本地仓库路径下，执行下面命令完成Git初始化
+&gt;&gt;git config &ndash;global user.name &rdquo;用户名&rdquo;      与gitlab相同<br />
+&gt;&gt;git config &ndash;global user.name &rdquo;邮箱&rdquo;         与gitlab相同</p>
+
+<p>在Git本地仓库目录下建立需要迁移项目同名的空文件夹（同名为了方便识别）</p>
+
+<p>git-bash命令行中执行执行：</p>
+
+<p><code>git svn clone yoursvnaddress --authors-file=D:\\users.txt D:\\Test\\KEntity</code></p>
+
+<p>第一处参数是svn地址，需要换成需要迁移的项目地址，
+第二个参数是上文建立的.txt文件路径，
+第三个参数为上文建立的Git本地仓库下新建的需要迁移项目同名的空文件的路径，</p>
+
+<p>项目成功down到本地，在远程仓库中建立相同名称的项目（private权限），成功后复制项目ssh地址，例如：yourgitlabaddress<br />
+git-bash中执行
+*git remote add origin yourgitlabaddress*，把本地库与远程仓库关联<br />
+git-bash中执行
+<em>git push -u origin master</em></p>
+
+<h2 id="三-gitlab权限管理">三.Gitlab权限管理</h2>
+
+<p><a href="https://docs.gitlab.com/ee/user/permissions.html">gitlab权限控制详情文档</a></p>
+
+<p>通过Gitlab上点击项目的Members可控制权限，通过Add new user to filename
+共包含四种权限：</p>
+
+<p><strong>Guest</strong>      
+<strong>Reporter</strong>      
+<strong>Developer</strong>      
+<strong>Master</strong></p>
+
+<p><strong>权限由小到大</strong><br />
+&gt;Guest（暂时无用）<br />
+&gt;Reporter可以提供给测试人员 ，可以下载，不能提交<br />
+&gt;Developer可以下载和提交项目，但是只能提交到非保护的分支（master主干分支是受保护的），再由root权限或者Master进行合并（建议分配给一般开发者使用）<br />
+&gt;Master既可以下载也可以进行提交，对受保护的分支合并（建议分配给确定的一到两个人）</p>
+
+<h2 id="四-实际操作过程记录">四.实际操作过程记录</h2>
+
+<h3 id="1-登录gitlab-创建项目">1.登录Gitlab，创建项目</h3>
+
+<p><img src="http://ws3.sinaimg.cn/mw690/79b5b049gy1g2beplsmwaj20zh0k3ady.jpg" alt="gitlab-project" /></p>
+
+<h3 id="2-初始页面有命令行指引">2.初始页面有命令行指引</h3>
+
+<p>命令行指引</p>
+
+<p>Git 全局设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git config --global user.name &#34;Administrator&#34;
+git config --global user.email &#34;admin@example.com&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>创建一个新存储库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git clone https://gitlab.xxx.com/k8stest/portalconsole.git
+cd portalconsole
+touch README.md
+git add README.md
+git commit -m &#34;add README&#34;
+git push -u origin master</pre></td></tr></table>
+</div>
+</div>
+<p>现有的文件夹</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd existing_folder
+git init
+git remote add origin https://gitlab.xxx.com/k8stest/portalconsole.git
+git add .
+git commit -m &#34;Initial commit&#34;
+git push -u origin master</pre></td></tr></table>
+</div>
+</div>
+<p>现有的Git存储库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd existing_repo
+git remote rename origin old-origin
+git remote add origin https://gitlab.xxxx.com/k8stest/portalconsole.git
+git push -u origin --all
+git push -u origin --tags</pre></td></tr></table>
+</div>
+</div>
+<h3 id="3-下载svn项目">3.下载svn项目</h3>
+
+<p>我这里内网和公网都配置了，我使用内网ip拉代码了，它会自动生成文件夹存储：<br />
+<code>git svn clone  svn://192.168.11.230/project/dev2/portalConsole --authors-file=auther.txt portalConsole</code></p>
+
+<p>拉取代码完成后，我们就使用命令行指引的 <em>现有的文件夹</em> 那段话：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git init
+git remote add origin http://192.168.11.240/chinagpay/portalConsole.git
+git add .
+git commit -m &#34;Initial commit&#34;
+git push -u origin master</pre></td></tr></table>
+</div>
+</div>
+<p>操作完成后，gitlab代码库上面就有我们的代码了。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SoHuDrgon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-04-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/gitlab/">“Gitlab”</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/gitlab-update-new-version/">
+            <span class="next-text nav-default">Gitlab Update New Version</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80Mzc2Ny8yMDMwNg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>Please enable JavaScript to view the comments powered by <a href="https://livere.com/">LiveRe.</a></noscript>
+    </div><div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2019-04-22 11:37:20 \x2b0800 CST',
+        title: 'SVN项目迁移Gitlab',
+        link: decodeURI(location.href),
+        desc: 'SVN项目迁移到Gitlab教程 一.准备工作 1 2 3 4 • 本地安装Git，下载地址：https:\/\/git-scm.com\/downloads，',
+        owner: 'guogang1990',
+        repo: 'https:\/\/github.com\/guogang1990\/sohudrgon.ml.git',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:guogang1990@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.twitter.com/SoHuDrgon" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/guogang1990" class="iconfont icon-github" title="github"></a>
+  <a href="https://sohudrgon.ml/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SoHuDrgon</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
