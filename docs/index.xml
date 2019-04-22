@@ -6,10 +6,28 @@
     <description>Recent content on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 17 Apr 2019 16:10:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2019 10:15:14 +0800</lastBuildDate>
     
 	<atom:link href="https://sohudrgon.ml/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CentOS 6 安装Gitlab</title>
+      <link>https://sohudrgon.ml/post/centos-6-%E5%AE%89%E8%A3%85gitlab/</link>
+      <pubDate>Mon, 22 Apr 2019 10:15:14 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/centos-6-%E5%AE%89%E8%A3%85gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://sohudrgon.ml/hello-world/</link>
+      <pubDate>Wed, 17 Apr 2019 16:10:14 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/hello-world/</guid>
+      <description>你好，hugo！</description>
+    </item>
     
     <item>
       <title>Hello World</title>
@@ -26,7 +44,7 @@
       <pubDate>Wed, 17 Apr 2019 15:22:41 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/hugo-install/</guid>
-      <description></description>
+      <description>安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在</description>
     </item>
     
   </channel>
