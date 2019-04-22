@@ -1,8 +1,8 @@
 ---
 title: "CentOS 6 安装Gitlab"
 date: 2019-04-22T10:15:14+08:00
-tag: “Gitlab”
-category: “Gitlab”
+tag: [“Gitlab”]
+category: [“Gitlab”]
 draft: false
 ---
 

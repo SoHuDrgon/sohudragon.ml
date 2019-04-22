@@ -1,6 +1,8 @@
 ---
 title: "Hugo Install"
 date: 2019-04-17T15:22:41+08:00
+tag: [“Hugo”]
+category: [“Hugo”]
 draft: false
 ---
 
