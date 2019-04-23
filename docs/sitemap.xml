@@ -3,13 +3,50 @@
   
   <url>
     <loc>https://sohudrgon.ml/categories/</loc>
-    <lastmod>2019-04-22T11:37:20+08:00</lastmod>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://sohudrgon.ml/tags/mysql-5.7/</loc>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/post/mysql-5.7-yum%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://sohudrgon.ml/post/</loc>
-    <lastmod>2019-04-22T11:37:20+08:00</lastmod>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/</loc>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/mysql/</loc>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/mysql/</loc>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/</loc>
+    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -21,32 +58,20 @@
   </url>
   
   <url>
-    <loc>https://sohudrgon.ml/tags/</loc>
-    <lastmod>2019-04-22T11:37:20+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sohudrgon.ml/categories/gitlab/</loc>
-    <lastmod>2019-04-22T11:37:20+08:00</lastmod>
+    <lastmod>2019-04-22T14:47:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sohudrgon.ml/tags/gitlab/</loc>
-    <lastmod>2019-04-22T11:37:20+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgon.ml/</loc>
-    <lastmod>2019-04-22T11:37:20+08:00</lastmod>
+    <lastmod>2019-04-22T14:47:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sohudrgon.ml/post/gitlab-update-new-version/</loc>
-    <lastmod>2019-04-22T11:33:32+08:00</lastmod>
+    <lastmod>2019-04-22T14:47:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

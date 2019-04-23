@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL 5.7 on 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
+    <link>https://sohudrgon.ml/tags/mysql-5.7/</link>
+    <description>Recent content in MySQL 5.7 on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Apr 2019 11:16:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://sohudrgon.ml/tags/mysql-5.7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MySQL 5.7 yum安装教程</title>
+      <link>https://sohudrgon.ml/post/mysql-5.7-yum%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Tue, 23 Apr 2019 11:16:47 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/mysql-5.7-yum%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
