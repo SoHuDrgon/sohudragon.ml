@@ -26,7 +26,7 @@ go: golang.org/x/oauth2@v0.0.0-20181106182150-f42d05182288: unrecognized import 
 ## i/o timeout解决
 所以Google搜索解决方案，由于Google被墙，所以我们需要设置GOPROXY来避免i/o timeout的错误  
 
-###关于 $GOPROXY
+### 关于 $GOPROXY
 
 当我们使用go的时候，go默认会直接从代码库中去下载所需的相关依赖，GOPROXY 这个环境变量可以让我们控制自己从哪里去下载源代码，如果 GOPROXY 没有设置，go 会直接从代码库下载相关依赖代码。如果你像下面这样设置了这个环境变量，那么你就会通过 goproxy.io 下载所有的源代码。  
 
