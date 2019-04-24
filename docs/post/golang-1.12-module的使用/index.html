@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Golang 1.12 module的使用 - 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SoHuDrgon" /><meta name="description" content="起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5" /><meta name="keywords" content="Linux, Cloud, docker, Kubernetes, Gitlab" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Golang 1.12 module的使用" />
+<meta property="og:description" content="起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+<meta property="article:published_time" content="2019-04-23T15:22:41&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-23T15:22:41&#43;08:00"/>
+
+<meta itemprop="name" content="Golang 1.12 module的使用">
+<meta itemprop="description" content="起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5">
+
+
+<meta itemprop="datePublished" content="2019-04-23T15:22:41&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-23T15:22:41&#43;08:00" />
+<meta itemprop="wordCount" content="2379">
+
+
+
+<meta itemprop="keywords" content="“go”,golang," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang 1.12 module的使用"/>
+<meta name="twitter:description" content="起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">死亡笔记</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">死亡笔记</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Golang 1.12 module的使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-23 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> “go” </a>
+            <a href="/categories/golang/"> golang </a>
+            </div>
+          <span class="more-meta"> 约 2379 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#起因">起因</a></li>
+<li><a href="#i-o-timeout解决">i/o timeout解决</a></li>
+<li><a href="#go-module介绍">go module介绍</a>
+<ul>
+<li><a href="#定义模块">定义模块</a></li>
+<li><a href="#go-list-命令">go list 命令</a></li>
+<li><a href="#go-mod-命令">go mod 命令</a></li>
+</ul></li>
+<li><a href="#go-get-命令">go get 命令</a></li>
+<li><a href="#go-build-命令">go build 命令</a></li>
+<li><a href="#错误解决">错误解决</a>
+<ul>
+<li><a href="#格式化-go-mod-文件">格式化 go.mod 文件</a></li>
+<li><a href="#从-go-mod-删除不需要的依赖-新增需要的依赖">从 go.mod 删除不需要的依赖、新增需要的依赖，</a></li>
+</ul></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="起因">起因</h2>
+
+<p>获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">go: finding github.com/mattn/go-colorable v0.0.9
+go: finding github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
+go: finding github.com/pkg/term v0.0.0-20180730021639-bffc007b7fd5
+go: finding github.com/gonum/internal v0.0.0-20180125090855-fda53f8d2571
+go: finding github.com/sergi/go-diff v1.0.0
+go: finding github.com/gonum/integrate v0.0.0-20180125090255-09c2f478329f
+go: finding github.com/gonum/mathext v0.0.0-20180126232648-3ffefb3e36fc
+go: finding github.com/pierrec/lz4 v2.0.5+incompatible
+go: finding github.com/influxdata/line-protocol v0.0.0-20180522152040-32c6aa80de5e
+go: finding github.com/kr/pretty v0.1.0
+go: golang.org/x/sync@v0.0.0-20180314180146-1d60e4601c6f: unrecognized import path &#34;golang.org/x/sync&#34; (https fetch: Get https://golang.org/x/sync?go-get=1: dial tcp 216.239.37.1:443: i/o timeout)
+go: golang.org/x/oauth2@v0.0.0-20181106182150-f42d05182288: unrecognized import path &#34;golang.org/x/oauth2&#34; (https fetch: Get https://golang.org/x/oauth2?go-get=1: dial tcp 216.239.37.1:443: i/o timeout)</pre></td></tr></table>
+</div>
+</div>
+<h2 id="i-o-timeout解决">i/o timeout解决</h2>
+
+<p>所以Google搜索解决方案，由于Google被墙，所以我们需要设置GOPROXY来避免i/o timeout的错误</p>
+
+<p>###关于 $GOPROXY</p>
+
+<p>当我们使用go的时候，go默认会直接从代码库中去下载所需的相关依赖，GOPROXY 这个环境变量可以让我们控制自己从哪里去下载源代码，如果 GOPROXY 没有设置，go 会直接从代码库下载相关依赖代码。如果你像下面这样设置了这个环境变量，那么你就会通过 goproxy.io 下载所有的源代码。</p>
+
+<p><code>export GOPROXY=https://goproxy.io</code></p>
+
+<p>你可以通过置空这个环境变量来关闭，export GOPROXY= 。</p>
+
+<p>以前大家执行 go get golang.org/x/net net代码库会下载到本地GOPATH中，以后有任何项目引用到了 golang.org/x/net 都不会再去下载这个代码库，因为本地GOPATH已经有了，哪怕版本不对，golang也会引用。但是随着 module 概念引入go语言，每个引入的 module 拥有了 version。随着代码库的不断更新迭代，大家即使是对同一个代码库的引用也可能用了不同的tag 或者 commit hash，基于这个现状，go1.12 的 module 会比以前更频繁的下载源代码。但是基于中国有中国特色的互联网，我们有时候很难get到我们需要的依赖源代码，进而导致项目编译失败，CI失败。于是，我们需要一个proxy。</p>
+
+<p><img src="http://ws1.sinaimg.cn/mw690/79b5b049gy1g2clp6kesqj20l40eq3yf.jpg" alt="goproxy" />
+goproxy.io 是一个开源项目，当用户请求一个依赖库时，如果它发现本地没有这份代码就会自动请求源，然后cache到本地，用户就可以从 goproxy.io 请求到数据。当然，这些都是在一个请求中完成的。goproxy.io 只支持 go module 模式。当用户执行 go get 命令时，会去检查$GOPROXY//@v/list这个文件中是否有用户想要获取的版本，如果有，就依次获取 $GOPROXY//@v/.info、$GOPROXY//@v/.mod、$GOPROXY//@v/.zip 等文件，如果没有就直接从源码库中去下载。</p>
+
+<p>得益于 go module 在设计的时候非常重视安全这个领域，所以在启用了 go module 后，你会发现除了 go.mod 这个文件之外，还有一个 go.sum 文件，这个文件保存了每个依赖库的对应的hash值，来保证下载回来的代码库是正确的，不被人篡改的。同时， goproxy.io 也是个开源的项目。可以自行部署到自己的IDC中，因为公司内部自己的代码库 goproxy.io 是无法访问到的。开源地址：</p>
+
+<p><a href="https://github.com/goproxyio/goproxy">https://github.com/goproxyio/goproxy</a></p>
+
+<h2 id="go-module介绍">go module介绍</h2>
+
+<p>go 1.11 有了对模块的实验性支持，大部分的子命令都知道如何处理一个模块，比如 run build install get list mod 子命令，第三方工具可能会支持的晚一些。到 go 1.12 会删除对 GOPATH 的支持，go get 命令也会变成只能获取模块，不能像现在这样直接获取一个裸包。</p>
+
+<p>可以用环境变量 GO111MODULE 开启或关闭模块支持，它有三个可选值：off、on、auto，默认值是 auto。</p>
+
+<p>GO111MODULE=off 无模块支持，go 会从 GOPATH 和 vendor 文件夹寻找包。
+GO111MODULE=on 模块支持，go 会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod 下载依赖。
+GO111MODULE=auto 在 $GOPATH/src 外面且根目录有 go.mod 文件时，开启模块支持。
+在使用模块的时候，GOPATH 是无意义的，不过它还是会把下载的依赖储存在 $GOPATH/src/mod 中，也会把 go install 的结果放在 $GOPATH/bin 中。</p>
+
+<h3 id="定义模块">定义模块</h3>
+
+<p>模块根目录和其子目录的所有包构成模块，在根目录下存在 go.mod 文件，子目录会向着父目录、爷目录一直找到 go.mod 文件。</p>
+
+<p>模块路径指模块根目录的导入路径，也是其他子目录导入路径的前缀。go.mod 文件第一行定义了模块路径，有了这一行才算作是一个模块。</p>
+
+<p>go.mod 文件接下来的篇幅用来定义当前模块的依赖和依赖版本，也可以排除依赖和替换依赖。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cat ../github.com/mattn/go-colorable/go.mod
+module github.com/mattn/go-colorable
+
+require github.com/mattn/go-isatty v0.0.5</pre></td></tr></table>
+</div>
+</div>
+<p>这个文件不用手写，可以用 go mod -init -module example.com/m 生成 go.mod 的第一行，文件的剩余部分也不用担心，在执行 go build、go test、go list 命令时会根据需要的依赖自动生成 require 语句。</p>
+
+<p>官方建议经常维护这个文件，保持依赖项是干净的。对于国内用户来说，手动维护这个文件是必然的，因为你需要把 golang.org/x/text 替换成 github.com/golang/text 啊。不需要像以前那样以 hack 的方式替换 GOPATH 中的依赖，我一开始还保持着老思维，居然想要去替换模块的下载缓存，不过如果用 GOPROXY 功能也确实可以做到替换。</p>
+
+<h3 id="go-list-命令">go list 命令</h3>
+
+<p>go list -m 可以查看当前的依赖和版本</p>
+
+<h3 id="go-mod-命令">go mod 命令</h3>
+
+<p>这个子命令用来处理 go.mod 文件，上一小节我们已经见过 go mod -init 了。</p>
+
+<p>go mod edit -fmt  格式化 go.mod 文件。
+go mod tidy       从 go.mod 删除不需要的依赖、新增需要的依赖，这个操作不会改变依赖版本。
+go mod require=path@version 添加依赖或修改依赖版本，这里支持模糊匹配版本号，详情可以看下文 go get 的用法。
+go mod vendor 生成 vendor 文件夹。
+其他的自行 go help mod 查看。</p>
+
+<h2 id="go-get-命令">go get 命令</h2>
+
+<p>获取依赖的特定版本，用来升级和降级依赖。可以自动修改 go.mod 文件，而且依赖的依赖版本号也可能会变。在 go.mod 中使用 exclude 排除的包，不能 go get 下来。</p>
+
+<p>与以前不同的是，新版 go get 可以在末尾加 @ 符号，用来指定版本。</p>
+
+<p>它要求仓库必须用 v1.2.0 格式打 tag，像 v1.2 少个零都不行的，必须是语义化的、带 v 前缀的版本号。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">go get github.com/gorilla/mux    # 匹配最新的一个 tag
+go get github.com/gorilla/mux@latest    # 和上面一样
+go get github.com/gorilla/mux@v1.6.2    # 匹配 v1.6.2
+go get github.com/gorilla/mux@e3702bed2 # 匹配 v1.6.2
+go get github.com/gorilla/mux@c856192   # 匹配 c85619274f5d
+go get github.com/gorilla/mux@master    # 匹配 master 分支</pre></td></tr></table>
+</div>
+</div>
+<p>latest 匹配最新的 tag。</p>
+
+<p>v1.2.6 完整版本的写法。</p>
+
+<p>v1、v1.2 匹配带这个前缀的最新版本，如果最新版是 1.2.7，它们会匹配 1.2.7。</p>
+
+<p>c856192 版本 hash 前缀、分支名、无语义化的标签，在 go.mod 里都会会使用约定写法 v0.0.0-20180517173623-c85619274f5d，也被称作伪版本。</p>
+
+<p>go get 可以模糊匹配版本号，但 go.mod 文件只体现完整的版本号，即 v1.2.0、v0.0.0-20180517173623-c85619274f5d，只不过不需要手写这么长的版本号，用 go get 或上文的 go mod -require 模糊匹配即可，它会把匹配到的完整版本号写进 go.mod 文件。</p>
+
+<h2 id="go-build-命令">go build 命令</h2>
+
+<p>go build -getmode=vendor 在开启模块支持的情况下，用这个可以退回到使用 vendor 的时代。</p>
+
+<h2 id="错误解决">错误解决</h2>
+
+<h3 id="格式化-go-mod-文件">格式化 go.mod 文件</h3>
+
+<p><code>go mod edit -fmt</code></p>
+
+<h3 id="从-go-mod-删除不需要的依赖-新增需要的依赖">从 go.mod 删除不需要的依赖、新增需要的依赖，</h3>
+
+<p><code>go mod tidy</code></p>
+
+<h2 id="参考链接">参考链接</h2>
+
+<p>goproxy.io for Go modules <a href="https://blog.csdn.net/ra681t58cjxsgckj31/article/details/82392870">https://blog.csdn.net/ra681t58cjxsgckj31/article/details/82392870</a><br />
+用 golang 1.11 module 做项目版本管理 <a href="https://www.jianshu.com/p/c5733da150c6?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com">https://www.jianshu.com/p/c5733da150c6?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SoHuDrgon</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-04-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">“go”</a>
+          <a href="/tags/golang/">golang</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Zabbix主动发现并监控Redis</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/mysql-5.7-yum%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+            <span class="next-text nav-default">MySQL 5.7 yum安装教程</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="lv-container" data-id="city" data-uid="MTAyMC80Mzc2Ny8yMDMwNg==">
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+    <noscript>Please enable JavaScript to view the comments powered by <a href="https://livere.com/">LiveRe.</a></noscript>
+    </div><div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2019-04-23 15:22:41 \x2b0800 CST',
+        title: 'Golang 1.12 module的使用',
+        link: decodeURI(location.href),
+        desc: '起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5',
+        owner: 'guogang1990',
+        repo: 'https:\/\/github.com\/guogang1990\/sohudrgon.ml.git',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:guogang1990@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.twitter.com/SoHuDrgon" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/guogang1990" class="iconfont icon-github" title="github"></a>
+  <a href="https://sohudrgon.ml/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SoHuDrgon</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

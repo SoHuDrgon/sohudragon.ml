@@ -6,10 +6,46 @@
     <description>Recent content in Tags on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 23 Apr 2019 11:16:47 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2019 18:00:44 +0800</lastBuildDate>
     
 	<atom:link href="https://sohudrgon.ml/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>redis</title>
+      <link>https://sohudrgon.ml/tags/redis/</link>
+      <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“zabbix”</title>
+      <link>https://sohudrgon.ml/tags/zabbix/</link>
+      <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/tags/zabbix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://sohudrgon.ml/tags/golang/</link>
+      <pubDate>Tue, 23 Apr 2019 15:22:41 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“go”</title>
+      <link>https://sohudrgon.ml/tags/go/</link>
+      <pubDate>Tue, 23 Apr 2019 15:22:41 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/tags/go/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MySQL 5.7</title>

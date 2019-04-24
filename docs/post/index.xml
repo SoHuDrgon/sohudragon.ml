@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 23 Apr 2019 11:16:47 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2019 18:00:44 +0800</lastBuildDate>
     
 	<atom:link href="https://sohudrgon.ml/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zabbix主动发现并监控Redis</title>
+      <link>https://sohudrgon.ml/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/</link>
+      <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang 1.12 module的使用</title>
+      <link>https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 23 Apr 2019 15:22:41 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5</description>
+    </item>
     
     <item>
       <title>MySQL 5.7 yum安装教程</title>
@@ -17,7 +35,7 @@
       <pubDate>Tue, 23 Apr 2019 11:16:47 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/mysql-5.7-yum%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
-      <description></description>
+      <description>准备工作 我们要先下载mysql的repo源。 wget https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm 安装repo源： 1 2 3 4 rpm -ivh mysql57-community-release-el6-11.noarch.rpm warning: mysql57-community-release-el6-11.noarch.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY Preparing... ########################################### [100%] 1:mysql57-community-relea########################################### [100%] 或者直接安装： rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm 检测系统是否</description>
     </item>
     
     <item>
@@ -44,7 +62,7 @@
       <pubDate>Mon, 22 Apr 2019 10:15:14 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/centos-6-%E5%AE%89%E8%A3%85gitlab/</guid>
-      <description>Gtilab Omnibus安装教程 1 2 3 4 Gitlab官网：www.gitlab.com 官网安装说明：https://docs.gitlab.com/</description>
+      <description></description>
     </item>
     
     <item>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
+    <link>https://sohudrgon.ml/tags/golang/</link>
+    <description>Recent content in golang on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Apr 2019 15:22:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://sohudrgon.ml/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang 1.12 module的使用</title>
+      <link>https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 23 Apr 2019 15:22:41 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5</description>
+    </item>
+    
+  </channel>
+</rss>

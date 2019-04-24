@@ -3,7 +3,87 @@
   
   <url>
     <loc>https://sohudrgon.ml/categories/</loc>
-    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/post/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/redis/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/redis/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/zabbix/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/zabbix/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/</loc>
+    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-04-23T15:22:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/golang/</loc>
+    <lastmod>2019-04-23T15:22:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/golang/</loc>
+    <lastmod>2019-04-23T15:22:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/go/</loc>
+    <lastmod>2019-04-23T15:22:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/go/</loc>
+    <lastmod>2019-04-23T15:22:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -21,18 +101,6 @@
   </url>
   
   <url>
-    <loc>https://sohudrgon.ml/post/</loc>
-    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgon.ml/tags/</loc>
-    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sohudrgon.ml/categories/mysql/</loc>
     <lastmod>2019-04-23T11:16:47+08:00</lastmod>
     <priority>0</priority>
@@ -40,12 +108,6 @@
   
   <url>
     <loc>https://sohudrgon.ml/tags/mysql/</loc>
-    <lastmod>2019-04-23T11:16:47+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgon.ml/</loc>
     <lastmod>2019-04-23T11:16:47+08:00</lastmod>
     <priority>0</priority>
   </url>
