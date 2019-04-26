@@ -56,10 +56,10 @@ Include=/etc/zabbix/zabbix_agentd.d/
 查看配置文件内容，保证里面各脚本的路径与我们移动的目录一致。  
 ```
 # cat /etc/zabbix/zabbix_agentd.d/userparameter_rabbitmq.conf 
-UserParameter=rabbitmq.discovery_queues,/etc/zabbix/scripts/rabbitmq/list_rabbit_queues.sh
-UserParameter=rabbitmq.discovery_shovels,/etc/zabbix/scripts/rabbitmq/list_rabbit_shovels.sh
-UserParameter=rabbitmq.discovery_nodes,/etc/zabbix/scripts/rabbitmq/list_rabbit_nodes.sh
-UserParameter=rabbitmq[*],/etc/zabbix/scripts/rabbitmq/rabbitmq-status.sh $1 $2 $3
+UserParameter=rabbitmq.discovery_queues,/etc/zabbix/scripts/list_rabbit_queues.sh
+UserParameter=rabbitmq.discovery_shovels,/etc/zabbix/scripts/list_rabbit_shovels.sh
+UserParameter=rabbitmq.discovery_nodes,/etc/zabbix/scripts/list_rabbit_nodes.sh
+UserParameter=rabbitmq[*],/etc/zabbix/scripts/rabbitmq-status.sh $1 $2 $3
 ```
 
 ### 导入模板到zabbix server服务器
