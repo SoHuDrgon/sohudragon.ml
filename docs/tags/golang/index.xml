@@ -17,7 +17,7 @@
       <pubDate>Tue, 23 Apr 2019 15:22:41 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/golang-1.12-module%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description></description>
+      <description>起因 获取了一个新的golang项目，放入IDE后，代码使用go fmt的时候报了一堆的错误，并且代码内部都是不可用的。报错信息如下： 1 2 3 4 5</description>
     </item>
     
   </channel>
