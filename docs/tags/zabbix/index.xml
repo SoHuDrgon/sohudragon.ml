@@ -6,10 +6,19 @@
     <description>Recent content in “zabbix” on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Apr 2019 18:00:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 14:31:47 +0800</lastBuildDate>
     
 	<atom:link href="https://sohudrgon.ml/tags/zabbix/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zabbix监控rabbitmq</title>
+      <link>https://sohudrgon.ml/post/zabbix%E7%9B%91%E6%8E%A7rabbitmq/</link>
+      <pubDate>Fri, 26 Apr 2019 14:31:47 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/post/zabbix%E7%9B%91%E6%8E%A7rabbitmq/</guid>
+      <description>文章介绍 近期上线了rabbitmq，需要在zabbix上进行监控设置，所以Google搜索到一个项目，采用这个项目配置了监控rabbitmq</description>
+    </item>
     
     <item>
       <title>Zabbix主动发现并监控Redis</title>
@@ -17,7 +26,7 @@
       <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/</guid>
-      <description>准备工作 最近需要监控redis，就Google搜索了一下，发现了这个项目，但是是英文的，我就把实际操作的步骤整理成文章记录一下： Github</description>
+      <description></description>
     </item>
     
   </channel>

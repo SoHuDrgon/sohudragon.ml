@@ -3,7 +3,7 @@ title: "Zabbix监控rabbitmq"
 date: 2019-04-26T14:31:47+08:00
 tags: [“zabbix”,"rabbitmq"]
 categories: [“zabbix”,"rabbitmq"]
-draft: true
+draft: false
 ---
 ## 文章介绍
 近期上线了rabbitmq，需要在zabbix上进行监控设置，所以Google搜索到一个项目，采用这个项目配置了监控rabbitmq。

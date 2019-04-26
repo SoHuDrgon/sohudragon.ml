@@ -3,19 +3,56 @@
   
   <url>
     <loc>https://sohudrgon.ml/categories/</loc>
-    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sohudrgon.ml/post/</loc>
-    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sohudrgon.ml/tags/</loc>
-    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/post/zabbix%E7%9B%91%E6%8E%A7rabbitmq/</loc>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/rabbitmq/</loc>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/rabbitmq/</loc>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/categories/zabbix/</loc>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/tags/zabbix/</loc>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sohudrgon.ml/</loc>
+    <lastmod>2019-04-26T14:31:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -34,24 +71,6 @@
   
   <url>
     <loc>https://sohudrgon.ml/tags/redis/</loc>
-    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgon.ml/categories/zabbix/</loc>
-    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgon.ml/tags/zabbix/</loc>
-    <lastmod>2019-04-24T18:00:44+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sohudrgon.ml/</loc>
     <lastmod>2019-04-24T18:00:44+08:00</lastmod>
     <priority>0</priority>
   </url>

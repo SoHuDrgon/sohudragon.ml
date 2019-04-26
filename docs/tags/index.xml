@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Apr 2019 18:00:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 14:31:47 +0800</lastBuildDate>
     
 	<atom:link href="https://sohudrgon.ml/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rabbitmq</title>
+      <link>https://sohudrgon.ml/tags/rabbitmq/</link>
+      <pubDate>Fri, 26 Apr 2019 14:31:47 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“zabbix”</title>
+      <link>https://sohudrgon.ml/tags/zabbix/</link>
+      <pubDate>Fri, 26 Apr 2019 14:31:47 +0800</pubDate>
+      
+      <guid>https://sohudrgon.ml/tags/zabbix/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>redis</title>
@@ -17,15 +35,6 @@
       <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/tags/redis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>“zabbix”</title>
-      <link>https://sohudrgon.ml/tags/zabbix/</link>
-      <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
-      
-      <guid>https://sohudrgon.ml/tags/zabbix/</guid>
       <description></description>
     </item>
     

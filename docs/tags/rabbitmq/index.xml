@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>“zabbix” on 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
-    <link>https://sohudrgon.ml/categories/zabbix/</link>
-    <description>Recent content in “zabbix” on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
+    <title>rabbitmq on 飞雪连天射白鹿 笑书神侠倚碧鸳</title>
+    <link>https://sohudrgon.ml/tags/rabbitmq/</link>
+    <description>Recent content in rabbitmq on 飞雪连天射白鹿 笑书神侠倚碧鸳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 26 Apr 2019 14:31:47 +0800</lastBuildDate>
     
-	<atom:link href="https://sohudrgon.ml/categories/zabbix/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sohudrgon.ml/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://sohudrgon.ml/post/zabbix%E7%9B%91%E6%8E%A7rabbitmq/</guid>
       <description>文章介绍 近期上线了rabbitmq，需要在zabbix上进行监控设置，所以Google搜索到一个项目，采用这个项目配置了监控rabbitmq</description>
-    </item>
-    
-    <item>
-      <title>Zabbix主动发现并监控Redis</title>
-      <link>https://sohudrgon.ml/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/</link>
-      <pubDate>Wed, 24 Apr 2019 18:00:44 +0800</pubDate>
-      
-      <guid>https://sohudrgon.ml/post/zabbix%E4%B8%BB%E5%8A%A8%E5%8F%91%E7%8E%B0%E5%B9%B6%E7%9B%91%E6%8E%A7redis/</guid>
-      <description></description>
     </item>
     
   </channel>
