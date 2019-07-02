@@ -211,13 +211,13 @@ PING guogang.github.io (185.199.110.153): 56 data bytes
 
 ![屏幕快照 2019-04-17 下午2.01.02](http://ws4.sinaimg.cn/mw690/79b5b049gy1g25qgn5aoqj20t30f1dhm.jpg)
 
-![usehttps](http://ws1.sinaimg.cn/mw690/79b5b049gy1g25qoyiu4sj20t105oq3b.jpg)
-然后是DNS标签栏配置，跟Freenom设置类似：
+![usehttps](http://ws1.sinaimg.cn/mw690/79b5b049gy1g25qoyiu4sj20t105oq3b.jpg)  
+然后是DNS标签栏配置，跟Freenom设置类似：  
 ![dnsmanage](http://wx2.sinaimg.cn/mw690/79b5b049gy1g25qp9wl0bj20sy0is76m.jpg)
 
 至此配置完毕。其实CloudFlare中还有很多别的选项，可以根据个人喜好进行相应配置。等待几小时，再次访问sohudrgon.ml，可以发现网页已经在HTTPs协议下加载了。这样以来就再也不用去点那个烦人的load按钮了。
 
 ## 后记
-至此我的新版博客就迁移完毕了，基本满足我现在写文章、摄影和音乐的各项需求。下一步准备在摄影栏目中加上一个照片墙功能。
+至此我的新版博客就迁移完毕了，基本满足我现在写文章各项需求。
 
 
