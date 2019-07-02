@@ -26,7 +26,7 @@
       <pubDate>Fri, 26 Apr 2019 14:31:47 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/zabbix%E7%9B%91%E6%8E%A7rabbitmq/</guid>
-      <description>文章介绍 近期上线了rabbitmq，需要在zabbix上进行监控设置，所以Google搜索到一个项目，采用这个项目配置了监控rabbitmq</description>
+      <description></description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@
       <pubDate>Wed, 17 Apr 2019 15:22:41 +0800</pubDate>
       
       <guid>https://sohudrgon.ml/post/hugo-install/</guid>
-      <description></description>
+      <description>安装Hugo 本文在macOS High Sierra环境下写成。Windows平台可参考官方文档做相应修改。 如果Mac上已经装上了Homebrew，在</description>
     </item>
     
   </channel>

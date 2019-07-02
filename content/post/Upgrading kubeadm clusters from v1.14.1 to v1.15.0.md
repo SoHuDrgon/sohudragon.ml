@@ -561,7 +561,7 @@ The upgrade workflow at high level is the following:
 
 1.  Find the latest stable 1.15 version:
 
-    ```shell
+    ```
     yum makecache fast
     yum list --showduplicates kubeadm --disableexcludes=kubernetes
     # find the latest 1.15 version in the list
@@ -572,7 +572,7 @@ The upgrade workflow at high level is the following:
 
 1.  On your first control plane node, upgrade kubeadm:
 
-    ```shell
+    ```
     # replace x in 1.15.x-0 with the latest patch version
     yum install -y kubeadm-1.15.x-0 --disableexcludes=kubernetes
 
@@ -580,9 +580,9 @@ The upgrade workflow at high level is the following:
     yum install -y kubeadm-1.15.0-0 --disableexcludes=kubernetes
     ```
 
-1.  Verify that the download works and has the expected version:
+2.  Verify that the download works and has the expected version:
 
-    ```shell
+    ```
     kubeadm version
 
     显示信息如下：
@@ -590,15 +590,15 @@ The upgrade workflow at high level is the following:
     kubeadm version: &version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.0", GitCommit:"e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529", GitTreeState:"clean", BuildDate:"2019-06-19T16:37:41Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
     ```
 
-2.  On the control plane node, run:
+3.  On the control plane node, run:
 
-    ```shell
+    ```
     sudo kubeadm upgrade plan
     ```
 
     You should see output similar to this:
 
-    ```shell
+    ```
     kubeadm upgrade plan
     [upgrade/config] Making sure the configuration is correct:
     [upgrade/config] Reading configuration from the cluster...
@@ -644,9 +644,9 @@ The upgrade workflow at high level is the following:
     For more information see the [certificate management guide](/docs/tasks/administer-cluster/kubeadm/kubeadm-certs).
 
 
-3.  Choose a version to upgrade to, and run the appropriate command. For example:
+4.  Choose a version to upgrade to, and run the appropriate command. For example:
 
-    ```shell
+    ```
     sudo kubeadm upgrade apply v1.15.x
 
     详细安装命令：
@@ -657,7 +657,7 @@ The upgrade workflow at high level is the following:
 
     You should see output similar to this:
 
-    ```shell
+    ```
     sudo kubeadm upgrade apply v1.15.0
     [upgrade/config] Making sure the configuration is correct:
     [upgrade/config] Reading configuration from the cluster...
@@ -739,15 +739,15 @@ The upgrade workflow at high level is the following:
     ```
     如果有多个控制节点，我们需要再每个控制节点上面都操作一下。  
 
-4.  Manually upgrade your CNI provider plugin.
+5.  Manually upgrade your CNI provider plugin.
 
     Your Container Network Interface (CNI) provider may have its own upgrade instructions to follow.
     Check the [addons](/docs/concepts/cluster-administration/addons/) page to
     find your CNI provider and see whether additional upgrade steps are required.
 
-5.  Upgrade the kubelet and kubectl on the control plane node:
+6.  Upgrade the kubelet and kubectl on the control plane node:
 
-    ```shell
+    ```
     # replace x in 1.15.x-0 with the latest patch version
     yum install -y kubelet-1.15.x-0 kubectl-1.15.x-0 --disableexcludes=kubernetes
 
@@ -755,9 +755,9 @@ The upgrade workflow at high level is the following:
     yum install -y kubelet-1.15.0-0 kubectl-1.15.0-0 --disableexcludes=kubernetes
     ```
 
-6. Restart the kubelet
+7. Restart the kubelet
 
-    ```shell
+    ```
     sudo systemctl daemon-reload
     sudo systemctl restart kubelet
     ```
@@ -766,13 +766,13 @@ The upgrade workflow at high level is the following:
 
 1.  Same as the first control plane node but use:
 
-    ```shell
+    ```
     sudo kubeadm upgrade node
     ```
 
     instead of:
 
-    ```shell
+    ```
     sudo kubeadm upgrade apply
     ```
 
@@ -787,7 +787,7 @@ without compromising the minimum required capacity for running your workloads.
 
 1.  Upgrade kubeadm on all worker nodes:
 
-    ```shell
+    ```
     # replace x in 1.15.x-0 with the latest patch version
     yum install -y kubeadm-1.15.x-0 --disableexcludes=kubernetes
 
@@ -799,7 +799,7 @@ without compromising the minimum required capacity for running your workloads.
 
 1.  Prepare the node for maintenance by marking it unschedulable and evicting the workloads. Run:
 
-    ```shell
+    ```
     kubectl drain $NODE --ignore-daemonsets
     ```
 
@@ -834,7 +834,7 @@ without compromising the minimum required capacity for running your workloads.
 
 1.  Call the following command:
 
-    ```shell
+    ```
     sudo kubeadm upgrade node
     ```
 
@@ -849,7 +849,7 @@ without compromising the minimum required capacity for running your workloads.
 
 2. Restart the kubelet
 
-    ```shell
+    ```
     sudo systemctl daemon-reload
     sudo systemctl restart kubelet
     ```
@@ -858,7 +858,7 @@ without compromising the minimum required capacity for running your workloads.
 
 1.  Bring the node back online by marking it schedulable:
 
-    ```shell
+    ```
     kubectl uncordon $NODE
 
     详细命令如下：
@@ -874,7 +874,7 @@ without compromising the minimum required capacity for running your workloads.
 
 After the kubelet is upgraded on all nodes verify that all nodes are available again by running the following command from anywhere kubectl can access the cluster:
 
-```shell
+```
 kubectl get nodes
 
 你可以看到如下输出：

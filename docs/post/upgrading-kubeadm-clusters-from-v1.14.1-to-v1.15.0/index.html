@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sohudrgon.ml/post/upgrading-kubeadm-clusters-from-v1.14.1-to-v1.15.0/" />
 <meta property="article:published_time" content="2019-07-02T14:42:04&#43;08:00"/>
-<meta property="article:modified_time" content="2019-07-02T16:00:07&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-02T16:04:11&#43;08:00"/>
 
 <meta itemprop="name" content="Upgrading Kubeadm Clusters From V1.14.1 to V1.15">
 <meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2019-07-02T14:42:04&#43;08:00" />
-<meta itemprop="dateModified" content="2019-07-02T16:00:07&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-02T16:04:11&#43;08:00" />
 <meta itemprop="wordCount" content="0">
 
 
@@ -960,16 +960,16 @@ For example, you can upgrade from 1.y to 1.y+1, but not from 1.y to 1.y+2.</li>
 <li><p>Find the latest stable 1.15 version:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">yum makecache fast
-yum list --showduplicates kubeadm --disableexcludes<span class="o">=</span>kubernetes
-<span class="c1"># find the latest 1.15 version in the list</span>
-<span class="c1"># it should look like 1.15.x-0, where x is the latest patch</span></code></pre></td></tr></table>
+<pre class="chroma">yum makecache fast
+yum list --showduplicates kubeadm --disableexcludes=kubernetes
+# find the latest 1.15 version in the list
+# it should look like 1.15.x-0, where x is the latest patch</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -980,52 +980,52 @@ yum list --showduplicates kubeadm --disableexcludes<span class="o">=</span>kuber
 <li><p>On your first control plane node, upgrade kubeadm:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># replace x in 1.15.x-0 with the latest patch version</span>
-yum install -y kubeadm-1.15.x-0 --disableexcludes<span class="o">=</span>kubernetes
+<pre class="chroma"># replace x in 1.15.x-0 with the latest patch version
+yum install -y kubeadm-1.15.x-0 --disableexcludes=kubernetes
 
 安装新版kubeadm
-yum install -y kubeadm-1.15.0-0 --disableexcludes<span class="o">=</span>kubernetes</code></pre></td></tr></table>
+yum install -y kubeadm-1.15.0-0 --disableexcludes=kubernetes</pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>Verify that the download works and has the expected version:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">kubeadm version
+<pre class="chroma">kubeadm version
 
 显示信息如下：
 kubeadm version
-kubeadm version: <span class="p">&amp;</span>version.Info<span class="o">{</span>Major:<span class="s2">&#34;1&#34;</span>, Minor:<span class="s2">&#34;15&#34;</span>, GitVersion:<span class="s2">&#34;v1.15.0&#34;</span>, GitCommit:<span class="s2">&#34;e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529&#34;</span>, GitTreeState:<span class="s2">&#34;clean&#34;</span>, BuildDate:<span class="s2">&#34;2019-06-19T16:37:41Z&#34;</span>, GoVersion:<span class="s2">&#34;go1.12.5&#34;</span>, Compiler:<span class="s2">&#34;gc&#34;</span>, Platform:<span class="s2">&#34;linux/amd64&#34;</span><span class="o">}</span></code></pre></td></tr></table>
+kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;15&#34;, GitVersion:&#34;v1.15.0&#34;, GitCommit:&#34;e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2019-06-19T16:37:41Z&#34;, GoVersion:&#34;go1.12.5&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}</pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>On the control plane node, run:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade plan</code></pre></td></tr></table>
+<pre class="chroma">sudo kubeadm upgrade plan</pre></td></tr></table>
 </div>
 </div>
 <p>You should see output similar to this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1060,27 +1060,27 @@ kubeadm version: <span class="p">&amp;</span>version.Info<span class="o">{</span
 </span><span class="lnt">33
 </span><span class="lnt">34
 </span><span class="lnt">35
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">kubeadm upgrade plan
-<span class="o">[</span>upgrade/config<span class="o">]</span> Making sure the configuration is correct:
-<span class="o">[</span>upgrade/config<span class="o">]</span> Reading configuration from the cluster...
-<span class="o">[</span>upgrade/config<span class="o">]</span> FYI: You can look at this config file with <span class="s1">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
-<span class="o">[</span>preflight<span class="o">]</span> Running pre-flight checks.
-<span class="o">[</span>upgrade<span class="o">]</span> Making sure the cluster is healthy:
-<span class="o">[</span>upgrade<span class="o">]</span> Fetching available versions to upgrade to
-<span class="o">[</span>upgrade/versions<span class="o">]</span> Cluster version: v1.14.1
-<span class="o">[</span>upgrade/versions<span class="o">]</span> kubeadm version: v1.15.0
-W0702 <span class="m">15</span>:12:20.713022   <span class="m">19841</span> version.go:98<span class="o">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span class="s2">&#34;https://dl.k8s.io/release/stable.txt&#34;</span>: Get https://dl.k8s.io/release/stable.txt: net/http: request canceled <span class="k">while</span> waiting <span class="k">for</span> connection <span class="o">(</span>Client.Timeout exceeded <span class="k">while</span> awaiting headers<span class="o">)</span>
-W0702 <span class="m">15</span>:12:20.713088   <span class="m">19841</span> version.go:99<span class="o">]</span> falling back to the <span class="nb">local</span> client version: v1.15.0
-<span class="o">[</span>upgrade/versions<span class="o">]</span> Latest stable version: v1.15.0
-W0702 <span class="m">15</span>:12:31.063363   <span class="m">19841</span> version.go:98<span class="o">]</span> could not fetch a Kubernetes version from the internet: unable to get URL <span class="s2">&#34;https://dl.k8s.io/release/stable-1.14.txt&#34;</span>: Get https://dl.k8s.io/release/stable-1.14.txt: net/http: request canceled <span class="k">while</span> waiting <span class="k">for</span> connection <span class="o">(</span>Client.Timeout exceeded <span class="k">while</span> awaiting headers<span class="o">)</span>
-W0702 <span class="m">15</span>:12:31.063441   <span class="m">19841</span> version.go:99<span class="o">]</span> falling back to the <span class="nb">local</span> client version: v1.15.0
-<span class="o">[</span>upgrade/versions<span class="o">]</span> Latest version in the v1.14 series: v1.15.0
+<pre class="chroma">kubeadm upgrade plan
+[upgrade/config] Making sure the configuration is correct:
+[upgrade/config] Reading configuration from the cluster...
+[upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;
+[preflight] Running pre-flight checks.
+[upgrade] Making sure the cluster is healthy:
+[upgrade] Fetching available versions to upgrade to
+[upgrade/versions] Cluster version: v1.14.1
+[upgrade/versions] kubeadm version: v1.15.0
+W0702 15:12:20.713022   19841 version.go:98] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable.txt&#34;: Get https://dl.k8s.io/release/stable.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+W0702 15:12:20.713088   19841 version.go:99] falling back to the local client version: v1.15.0
+[upgrade/versions] Latest stable version: v1.15.0
+W0702 15:12:31.063363   19841 version.go:98] could not fetch a Kubernetes version from the internet: unable to get URL &#34;https://dl.k8s.io/release/stable-1.14.txt&#34;: Get https://dl.k8s.io/release/stable-1.14.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+W0702 15:12:31.063441   19841 version.go:99] falling back to the local client version: v1.15.0
+[upgrade/versions] Latest version in the v1.14 series: v1.15.0
 
-Components that must be upgraded manually after you have upgraded the control plane with <span class="s1">&#39;kubeadm upgrade apply&#39;</span>:
+Components that must be upgraded manually after you have upgraded the control plane with &#39;kubeadm upgrade apply&#39;:
 COMPONENT   CURRENT       AVAILABLE
-Kubelet     <span class="m">6</span> x v1.14.1   v1.15.0
+Kubelet     6 x v1.14.1   v1.15.0
 
 Upgrade to the latest version in the v1.14 series:
 
@@ -1089,14 +1089,14 @@ API Server           v1.14.1   v1.15.0
 Controller Manager   v1.14.1   v1.15.0
 Scheduler            v1.14.1   v1.15.0
 Kube Proxy           v1.14.1   v1.15.0
-CoreDNS              <span class="m">1</span>.3.1     <span class="m">1</span>.3.1
-Etcd                 <span class="m">3</span>.3.10    <span class="m">3</span>.3.10
+CoreDNS              1.3.1     1.3.1
+Etcd                 3.3.10    3.3.10
 
 You can now apply the upgrade by executing the following command:
 
         kubeadm upgrade apply v1.15.0
 
-_____________________________________________________________________</code></pre></td></tr></table>
+_____________________________________________________________________</pre></td></tr></table>
 </div>
 </div>
 <p>This command checks that your cluster can be upgraded, and fetches the versions you can upgrade to.</p>
@@ -1108,16 +1108,16 @@ For more information see the <a href="/docs/tasks/administer-cluster/kubeadm/kub
 <li><p>Choose a version to upgrade to, and run the appropriate command. For example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade apply v1.15.x
+<pre class="chroma">sudo kubeadm upgrade apply v1.15.x
 
 详细安装命令：
-sudo kubeadm upgrade apply v1.15.0</code></pre></td></tr></table>
+sudo kubeadm upgrade apply v1.15.0</pre></td></tr></table>
 </div>
 </div>
 <ul>
@@ -1127,7 +1127,7 @@ sudo kubeadm upgrade apply v1.15.0</code></pre></td></tr></table>
 <p>You should see output similar to this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1205,86 +1205,86 @@ sudo kubeadm upgrade apply v1.15.0</code></pre></td></tr></table>
 </span><span class="lnt">76
 </span><span class="lnt">77
 </span><span class="lnt">78
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade apply v1.15.0
-<span class="o">[</span>upgrade/config<span class="o">]</span> Making sure the configuration is correct:
-<span class="o">[</span>upgrade/config<span class="o">]</span> Reading configuration from the cluster...
-<span class="o">[</span>upgrade/config<span class="o">]</span> FYI: You can look at this config file with <span class="s1">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
-<span class="o">[</span>preflight<span class="o">]</span> Running pre-flight checks.
-<span class="o">[</span>upgrade<span class="o">]</span> Making sure the cluster is healthy:
-<span class="o">[</span>upgrade/version<span class="o">]</span> You have chosen to change the cluster version to <span class="s2">&#34;v1.15.0&#34;</span>
-<span class="o">[</span>upgrade/versions<span class="o">]</span> Cluster version: v1.14.1
-<span class="o">[</span>upgrade/versions<span class="o">]</span> kubeadm version: v1.15.0
-<span class="o">[</span>upgrade/confirm<span class="o">]</span> Are you sure you want to proceed with the upgrade? <span class="o">[</span>y/N<span class="o">]</span>: y
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Will prepull images <span class="k">for</span> components <span class="o">[</span>kube-apiserver kube-controller-manager kube-scheduler etcd<span class="o">]</span>
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulling image <span class="k">for</span> component etcd.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulling image <span class="k">for</span> component kube-apiserver.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulling image <span class="k">for</span> component kube-controller-manager.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulling image <span class="k">for</span> component kube-scheduler.
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector k8s-app<span class="o">=</span>upgrade-prepull-kube-controller-manager
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">1</span> Pods <span class="k">for</span> label selector k8s-app<span class="o">=</span>upgrade-prepull-kube-scheduler
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">0</span> Pods <span class="k">for</span> label selector k8s-app<span class="o">=</span>upgrade-prepull-etcd
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector k8s-app<span class="o">=</span>upgrade-prepull-kube-apiserver
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector k8s-app<span class="o">=</span>upgrade-prepull-kube-scheduler
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector k8s-app<span class="o">=</span>upgrade-prepull-etcd
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulled image <span class="k">for</span> component etcd.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulled image <span class="k">for</span> component kube-apiserver.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulled image <span class="k">for</span> component kube-controller-manager.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Prepulled image <span class="k">for</span> component kube-scheduler.
-<span class="o">[</span>upgrade/prepull<span class="o">]</span> Successfully prepulled the images <span class="k">for</span> all the control plane components
-<span class="o">[</span>upgrade/apply<span class="o">]</span> Upgrading your Static Pod-hosted control plane to version <span class="s2">&#34;v1.15.0&#34;</span>...
+<pre class="chroma">sudo kubeadm upgrade apply v1.15.0
+[upgrade/config] Making sure the configuration is correct:
+[upgrade/config] Reading configuration from the cluster...
+[upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;
+[preflight] Running pre-flight checks.
+[upgrade] Making sure the cluster is healthy:
+[upgrade/version] You have chosen to change the cluster version to &#34;v1.15.0&#34;
+[upgrade/versions] Cluster version: v1.14.1
+[upgrade/versions] kubeadm version: v1.15.0
+[upgrade/confirm] Are you sure you want to proceed with the upgrade? [y/N]: y
+[upgrade/prepull] Will prepull images for components [kube-apiserver kube-controller-manager kube-scheduler etcd]
+[upgrade/prepull] Prepulling image for component etcd.
+[upgrade/prepull] Prepulling image for component kube-apiserver.
+[upgrade/prepull] Prepulling image for component kube-controller-manager.
+[upgrade/prepull] Prepulling image for component kube-scheduler.
+[apiclient] Found 3 Pods for label selector k8s-app=upgrade-prepull-kube-controller-manager
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-scheduler
+[apiclient] Found 0 Pods for label selector k8s-app=upgrade-prepull-etcd
+[apiclient] Found 3 Pods for label selector k8s-app=upgrade-prepull-kube-apiserver
+[apiclient] Found 3 Pods for label selector k8s-app=upgrade-prepull-kube-scheduler
+[apiclient] Found 3 Pods for label selector k8s-app=upgrade-prepull-etcd
+[upgrade/prepull] Prepulled image for component etcd.
+[upgrade/prepull] Prepulled image for component kube-apiserver.
+[upgrade/prepull] Prepulled image for component kube-controller-manager.
+[upgrade/prepull] Prepulled image for component kube-scheduler.
+[upgrade/prepull] Successfully prepulled the images for all the control plane components
+[upgrade/apply] Upgrading your Static Pod-hosted control plane to version &#34;v1.15.0&#34;...
 Static pod: kube-apiserver-kubecon-vapp11160 hash: 0aa9c75f95ab5b281e361ed890e145c7
 Static pod: kube-controller-manager-kubecon-vapp11160 hash: 6a929b03b25a87ec3aa12c126dd203e0
 Static pod: kube-scheduler-kubecon-vapp11160 hash: f6038c6cd5a85d4e6bb2b14e4743e83d
-<span class="o">[</span>upgrade/etcd<span class="o">]</span> Upgrading to TLS <span class="k">for</span> etcd
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Writing new Static Pod manifests to <span class="s2">&#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests853430691&#34;</span>
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Preparing <span class="k">for</span> <span class="s2">&#34;kube-apiserver&#34;</span> upgrade
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Renewing apiserver certificate
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Renewing apiserver-kubelet-client certificate
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Renewing front-proxy-client certificate
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Renewing apiserver-etcd-client certificate
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Moved new manifest to <span class="s2">&#34;/etc/kubernetes/manifests/kube-apiserver.yaml&#34;</span> and backed up old manifest to <span class="s2">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2019-07-02-15-18-46/kube-apiserver.yaml&#34;</span>
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Waiting <span class="k">for</span> the kubelet to restart the component
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> This might take a minute or longer depending on the component/version gap <span class="o">(</span>timeout 5m0s<span class="o">)</span>
+[upgrade/etcd] Upgrading to TLS for etcd
+[upgrade/staticpods] Writing new Static Pod manifests to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests853430691&#34;
+[upgrade/staticpods] Preparing for &#34;kube-apiserver&#34; upgrade
+[upgrade/staticpods] Renewing apiserver certificate
+[upgrade/staticpods] Renewing apiserver-kubelet-client certificate
+[upgrade/staticpods] Renewing front-proxy-client certificate
+[upgrade/staticpods] Renewing apiserver-etcd-client certificate
+[upgrade/staticpods] Moved new manifest to &#34;/etc/kubernetes/manifests/kube-apiserver.yaml&#34; and backed up old manifest to &#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2019-07-02-15-18-46/kube-apiserver.yaml&#34;
+[upgrade/staticpods] Waiting for the kubelet to restart the component
+[upgrade/staticpods] This might take a minute or longer depending on the component/version gap (timeout 5m0s)
 Static pod: kube-apiserver-kubecon-vapp11160 hash: 0aa9c75f95ab5b281e361ed890e145c7
 Static pod: kube-apiserver-kubecon-vapp11160 hash: 0aa9c75f95ab5b281e361ed890e145c7
 Static pod: kube-apiserver-kubecon-vapp11160 hash: c7c3adfbb3617f2f5b28ec57eb46c5a6
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector <span class="nv">component</span><span class="o">=</span>kube-apiserver
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Component <span class="s2">&#34;kube-apiserver&#34;</span> upgraded successfully!
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Preparing <span class="k">for</span> <span class="s2">&#34;kube-controller-manager&#34;</span> upgrade
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Renewing controller-manager.conf certificate
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Moved new manifest to <span class="s2">&#34;/etc/kubernetes/manifests/kube-controller-manager.yaml&#34;</span> and backed up old manifest to <span class="s2">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2019-07-02-15-18-46/kube-controller-manager.yaml&#34;</span>
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Waiting <span class="k">for</span> the kubelet to restart the component
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> This might take a minute or longer depending on the component/version gap <span class="o">(</span>timeout 5m0s<span class="o">)</span>
+[apiclient] Found 3 Pods for label selector component=kube-apiserver
+[upgrade/staticpods] Component &#34;kube-apiserver&#34; upgraded successfully!
+[upgrade/staticpods] Preparing for &#34;kube-controller-manager&#34; upgrade
+[upgrade/staticpods] Renewing controller-manager.conf certificate
+[upgrade/staticpods] Moved new manifest to &#34;/etc/kubernetes/manifests/kube-controller-manager.yaml&#34; and backed up old manifest to &#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2019-07-02-15-18-46/kube-controller-manager.yaml&#34;
+[upgrade/staticpods] Waiting for the kubelet to restart the component
+[upgrade/staticpods] This might take a minute or longer depending on the component/version gap (timeout 5m0s)
 Static pod: kube-controller-manager-kubecon-vapp11160 hash: 6a929b03b25a87ec3aa12c126dd203e0
 Static pod: kube-controller-manager-kubecon-vapp11160 hash: 140db3b140859389357b7ece4da4f43d
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector <span class="nv">component</span><span class="o">=</span>kube-controller-manager
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Component <span class="s2">&#34;kube-controller-manager&#34;</span> upgraded successfully!
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Preparing <span class="k">for</span> <span class="s2">&#34;kube-scheduler&#34;</span> upgrade
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Renewing scheduler.conf certificate
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Moved new manifest to <span class="s2">&#34;/etc/kubernetes/manifests/kube-scheduler.yaml&#34;</span> and backed up old manifest to <span class="s2">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2019-07-02-15-18-46/kube-scheduler.yaml&#34;</span>
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Waiting <span class="k">for</span> the kubelet to restart the component
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> This might take a minute or longer depending on the component/version gap <span class="o">(</span>timeout 5m0s<span class="o">)</span>
+[apiclient] Found 3 Pods for label selector component=kube-controller-manager
+[upgrade/staticpods] Component &#34;kube-controller-manager&#34; upgraded successfully!
+[upgrade/staticpods] Preparing for &#34;kube-scheduler&#34; upgrade
+[upgrade/staticpods] Renewing scheduler.conf certificate
+[upgrade/staticpods] Moved new manifest to &#34;/etc/kubernetes/manifests/kube-scheduler.yaml&#34; and backed up old manifest to &#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2019-07-02-15-18-46/kube-scheduler.yaml&#34;
+[upgrade/staticpods] Waiting for the kubelet to restart the component
+[upgrade/staticpods] This might take a minute or longer depending on the component/version gap (timeout 5m0s)
 Static pod: kube-scheduler-kubecon-vapp11160 hash: f6038c6cd5a85d4e6bb2b14e4743e83d
 Static pod: kube-scheduler-kubecon-vapp11160 hash: f6038c6cd5a85d4e6bb2b14e4743e83d
 Static pod: kube-scheduler-kubecon-vapp11160 hash: f6038c6cd5a85d4e6bb2b14e4743e83d
 Static pod: kube-scheduler-kubecon-vapp11160 hash: 3f870b1ade82dfb7e434c2862adf7402
-<span class="o">[</span>apiclient<span class="o">]</span> Found <span class="m">3</span> Pods <span class="k">for</span> label selector <span class="nv">component</span><span class="o">=</span>kube-scheduler
-<span class="o">[</span>upgrade/staticpods<span class="o">]</span> Component <span class="s2">&#34;kube-scheduler&#34;</span> upgraded successfully!
-<span class="o">[</span>upload-config<span class="o">]</span> Storing the configuration used in ConfigMap <span class="s2">&#34;kubeadm-config&#34;</span> in the <span class="s2">&#34;kube-system&#34;</span> Namespace
-<span class="o">[</span>kubelet<span class="o">]</span> Creating a ConfigMap <span class="s2">&#34;kubelet-config-1.15&#34;</span> in namespace kube-system with the configuration <span class="k">for</span> the kubelets in the cluster
-<span class="o">[</span>kubelet-start<span class="o">]</span> Downloading configuration <span class="k">for</span> the kubelet from the <span class="s2">&#34;kubelet-config-1.15&#34;</span> ConfigMap in the kube-system namespace
-<span class="o">[</span>kubelet-start<span class="o">]</span> Writing kubelet configuration to file <span class="s2">&#34;/var/lib/kubelet/config.yaml&#34;</span>
-<span class="o">[</span>bootstrap-token<span class="o">]</span> configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order <span class="k">for</span> nodes to get long term certificate credentials
-<span class="o">[</span>bootstrap-token<span class="o">]</span> configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
-<span class="o">[</span>bootstrap-token<span class="o">]</span> configured RBAC rules to allow certificate rotation <span class="k">for</span> all node client certificates in the cluster
-<span class="o">[</span>addons<span class="o">]</span> Applied essential addon: CoreDNS
-<span class="o">[</span>addons<span class="o">]</span> Applied essential addon: kube-proxy
+[apiclient] Found 3 Pods for label selector component=kube-scheduler
+[upgrade/staticpods] Component &#34;kube-scheduler&#34; upgraded successfully!
+[upload-config] Storing the configuration used in ConfigMap &#34;kubeadm-config&#34; in the &#34;kube-system&#34; Namespace
+[kubelet] Creating a ConfigMap &#34;kubelet-config-1.15&#34; in namespace kube-system with the configuration for the kubelets in the cluster
+[kubelet-start] Downloading configuration for the kubelet from the &#34;kubelet-config-1.15&#34; ConfigMap in the kube-system namespace
+[kubelet-start] Writing kubelet configuration to file &#34;/var/lib/kubelet/config.yaml&#34;
+[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
 
-<span class="o">[</span>upgrade/successful<span class="o">]</span> SUCCESS! Your cluster was upgraded to <span class="s2">&#34;v1.15.0&#34;</span>. Enjoy!
+[upgrade/successful] SUCCESS! Your cluster was upgraded to &#34;v1.15.0&#34;. Enjoy!
 
-<span class="o">[</span>upgrade/kubelet<span class="o">]</span> Now that your control plane is upgraded, please proceed with upgrading your kubelets <span class="k">if</span> you haven<span class="err">&#39;</span>t already <span class="k">done</span> so.</code></pre></td></tr></table>
+[upgrade/kubelet] Now that your control plane is upgraded, please proceed with upgrading your kubelets if you haven&#39;t already done so.</pre></td></tr></table>
 </div>
 </div>
 <p>如果有多个控制节点，我们需要再每个控制节点上面都操作一下。</p></li>
@@ -1298,30 +1298,30 @@ find your CNI provider and see whether additional upgrade steps are required.</p
 <li><p>Upgrade the kubelet and kubectl on the control plane node:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># replace x in 1.15.x-0 with the latest patch version</span>
-yum install -y kubelet-1.15.x-0 kubectl-1.15.x-0 --disableexcludes<span class="o">=</span>kubernetes
+<pre class="chroma"># replace x in 1.15.x-0 with the latest patch version
+yum install -y kubelet-1.15.x-0 kubectl-1.15.x-0 --disableexcludes=kubernetes
 
 详细安装命令：
-yum install -y kubelet-1.15.0-0 kubectl-1.15.0-0 --disableexcludes<span class="o">=</span>kubernetes</code></pre></td></tr></table>
+yum install -y kubelet-1.15.0-0 kubectl-1.15.0-0 --disableexcludes=kubernetes</pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>Restart the kubelet</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl daemon-reload
-sudo systemctl restart kubelet</code></pre></td></tr></table>
+<pre class="chroma">sudo systemctl daemon-reload
+sudo systemctl restart kubelet</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -1332,19 +1332,19 @@ sudo systemctl restart kubelet</code></pre></td></tr></table>
 <li><p>Same as the first control plane node but use:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade node</code></pre></td></tr></table>
+<pre class="chroma">sudo kubeadm upgrade node</pre></td></tr></table>
 </div>
 </div>
 <p>instead of:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade apply</code></pre></td></tr></table>
+<pre class="chroma">sudo kubeadm upgrade apply</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -1362,18 +1362,18 @@ without compromising the minimum required capacity for running your workloads.</
 <li><p>Upgrade kubeadm on all worker nodes:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># replace x in 1.15.x-0 with the latest patch version</span>
-yum install -y kubeadm-1.15.x-0 --disableexcludes<span class="o">=</span>kubernetes
+<pre class="chroma"># replace x in 1.15.x-0 with the latest patch version
+yum install -y kubeadm-1.15.x-0 --disableexcludes=kubernetes
 
 详细安装命令：
-yum install -y kubeadm-1.15.0-0 --disableexcludes<span class="o">=</span>kubernetes</code></pre></td></tr></table>
+yum install -y kubeadm-1.15.0-0 --disableexcludes=kubernetes</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -1384,10 +1384,10 @@ yum install -y kubeadm-1.15.0-0 --disableexcludes<span class="o">=</span>kuberne
 <li><p>Prepare the node for maintenance by marking it unschedulable and evicting the workloads. Run:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">kubectl drain <span class="nv">$NODE</span> --ignore-daemonsets</code></pre></td></tr></table>
+<pre class="chroma">kubectl drain $NODE --ignore-daemonsets</pre></td></tr></table>
 </div>
 </div>
 <p>You should see output similar to this:</p>
@@ -1446,10 +1446,10 @@ kubectl drain kubecon-app11245</pre></td></tr></table>
 <li><p>Call the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span></code></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo kubeadm upgrade node</code></pre></td></tr></table>
+<pre class="chroma">sudo kubeadm upgrade node</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -1472,12 +1472,12 @@ yum install -y kubelet-1.15.x-0 kubectl-1.15.x-0 --disableexcludes=kubernetes</p
 <li><p>Restart the kubelet</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo systemctl daemon-reload
-sudo systemctl restart kubelet</code></pre></td></tr></table>
+<pre class="chroma">sudo systemctl daemon-reload
+sudo systemctl restart kubelet</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -1488,7 +1488,7 @@ sudo systemctl restart kubelet</code></pre></td></tr></table>
 <li><p>Bring the node back online by marking it schedulable:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1497,17 +1497,17 @@ sudo systemctl restart kubelet</code></pre></td></tr></table>
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">kubectl uncordon <span class="nv">$NODE</span>
+<pre class="chroma">kubectl uncordon $NODE
 
 详细命令如下：
-<span class="o">[</span>root@kubecon-vapp11160 ~<span class="o">]</span><span class="c1"># kubectl uncordon kubecon-vapp11160</span>
-<span class="o">[</span>root@kubecon-vapp11160 ~<span class="o">]</span><span class="c1"># kubectl uncordon kubecon-vapp11170</span>
-<span class="o">[</span>root@kubecon-vapp11160 ~<span class="o">]</span><span class="c1"># kubectl uncordon kubecon-vapp11242</span>
-<span class="o">[</span>root@kubecon-vapp11160 ~<span class="o">]</span><span class="c1"># kubectl uncordon kubecon-app02</span>
-<span class="o">[</span>root@kubecon-vapp11160 ~<span class="o">]</span><span class="c1"># kubectl uncordon kubecon-app03</span>
-<span class="o">[</span>root@kubecon-vapp11160 ~<span class="o">]</span><span class="c1"># kubectl uncordon kubecon-app11245</span></code></pre></td></tr></table>
+[root@kubecon-vapp11160 ~]# kubectl uncordon kubecon-vapp11160
+[root@kubecon-vapp11160 ~]# kubectl uncordon kubecon-vapp11170
+[root@kubecon-vapp11160 ~]# kubectl uncordon kubecon-vapp11242
+[root@kubecon-vapp11160 ~]# kubectl uncordon kubecon-app02
+[root@kubecon-vapp11160 ~]# kubectl uncordon kubecon-app03
+[root@kubecon-vapp11160 ~]# kubectl uncordon kubecon-app11245</pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -1517,7 +1517,7 @@ sudo systemctl restart kubelet</code></pre></td></tr></table>
 <p>After the kubelet is upgraded on all nodes verify that all nodes are available again by running the following command from anywhere kubectl can access the cluster:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1528,9 +1528,9 @@ sudo systemctl restart kubelet</code></pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></code></pre></td>
+</span></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">kubectl get nodes
+<pre class="chroma">kubectl get nodes
 
 你可以看到如下输出：
 kubectl get node
@@ -1540,7 +1540,7 @@ kubecon-app03       Ready    &lt;none&gt;   179d   v1.15.0
 kubecon-app11245    Ready    &lt;none&gt;   179d   v1.15.0
 kubecon-vapp11160   Ready    master   179d   v1.15.0
 kubecon-vapp11170   Ready    master   179d   v1.15.0
-kubecon-vapp11242   Ready    master   179d   v1.15.0</code></pre></td></tr></table>
+kubecon-vapp11242   Ready    master   179d   v1.15.0</pre></td></tr></table>
 </div>
 </div>
 <p>The <code>STATUS</code> column should show <code>Ready</code> for all your nodes, and the version number should be updated.</p>
@@ -1598,7 +1598,7 @@ This command is idempotent and eventually makes sure that the actual state is th
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-07-02
-        <a href="https://github.com/guogang1990/sohudrgon.ml.git/commit/dce9a428e87cfd1ec0c438e1d26e091314062759" title="rebuilding site 2019年 7月 2日 星期二 16时00分07秒 CST">(dce9a42)</a>
+        <a href="https://github.com/guogang1990/sohudrgon.ml.git/commit/a170f3a8f3e0d40115240f491d9a48168131b767" title="rebuilding site 2019年 7月 2日 星期二 16时04分11秒 CST">(a170f3a)</a>
     </span>
   </p>
   
