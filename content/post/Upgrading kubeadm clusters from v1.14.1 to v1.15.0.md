@@ -1,7 +1,9 @@
 ---
 title: "Upgrading Kubeadm Clusters From V1.14.1 to V1.15"
 date: 2019-07-02T14:42:04+08:00
-draft: true
+tags: [“kubernetes,kubeadm”]
+categories: [“kubernetes”]
+draft: false
 ---
 
 # Kubernetes v1.15 Release Notes
@@ -636,11 +638,11 @@ The upgrade workflow at high level is the following:
 
     This command checks that your cluster can be upgraded, and fetches the versions you can upgrade to.
 
-    {{< note >}}
+
     With the release of Kubernetes v1.15, `kubeadm upgrade` also automatically renews
     the certificates that it manages on this node. To opt-out of certificate renewal the flag `--certificate-renewal=false` can be used.
     For more information see the [certificate management guide](/docs/tasks/administer-cluster/kubeadm/kubeadm-certs).
-    {{</ note >}}
+
 
 3.  Choose a version to upgrade to, and run the appropriate command. For example:
 
